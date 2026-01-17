@@ -6,8 +6,189 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SRO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+    <symbol id="icon_search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon_close" viewBox="0 0 24 24">
+        <line x1="6" y1="6" x2="18" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+        <line x1="18" y1="6" x2="6" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-like" viewBox="0 0 6 11">
+        <path d="M1.1417 0L0 1.23375L3.7085 5.25L0 9.26625L1.1417 10.5L6 5.25L1.1417 0Z" fill="#BDC0C7"/>
+    </symbol>
+
+
+    <symbol id="icon-triangle-down" viewBox="0 0 7 5">
+        <path d="M3.5 4.5L0 0L7 4.54262e-07L3.5 4.5Z" fill="black"/>
+    </symbol>
+
+    <symbol id="icon-refresh" viewBox="0 0 16 16" fill="none">
+        <path d="M0.666992 2.66675V6.66675H4.66699"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.333 13.3333V9.33325H11.333"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.6603 5.99989C13.3222 5.04441 12.7476 4.19016 11.99 3.51683C11.2325 2.84351 10.3167 2.37306 9.32813 2.14939C8.33959 1.92572 7.31049 1.95612 6.33687 2.23774C5.36324 2.51936 4.47682 3.04303 3.76033 3.75989L0.666992 6.66655M15.3337 9.33322L12.2403 12.2399C11.5238 12.9567 10.6374 13.4804 9.66379 13.762C8.69016 14.0437 7.66106 14.0741 6.67252 13.8504C5.68397 13.6267 4.76819 13.1563 4.01064 12.4829C3.25308 11.8096 2.67844 10.9554 2.34033 9.99989"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-logout" viewBox="0 0 16 16" fill="none">
+        <path d="M5.83301 2.16675L3.16634 2.16675C2.81272 2.16675 2.47358 2.30722 2.22353 2.55727C1.97348 2.80732 1.83301 3.14646 1.83301 3.50008L1.83301 12.8334C1.83301 13.187 1.97348 13.5262 2.22353 13.7762C2.47358 14.0263 2.81272 14.1667 3.16634 14.1667L5.83301 14.1667"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.833 4.83374L14.1663 8.16707L10.833 11.5004"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.83301 8.16724L13.833 8.16724"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+
+
+
+
+</svg>
+
+<header class="site-header">
+    <div class="container">
+        <div class="site-header__inner">
+            <!-- left: logo -->
+            <div class="header-left">
+                <a class="brand" href="index.html">
+                    <img src="img/logo.svg" alt="logo">
+                </a>
+
+                <img src="img/line.svg" alt="line">
+
+                <!-- center: breadcrumbs -->
+                <nav class="crumbs" aria-label="Breadcrumb">
+<!--                    <a class="crumbs__link" href="#">HOME</a>-->
+<!--                    <span class="crumbs__sep">-->
+<!--                        <svg width="6" height="11" aria-hidden="true">-->
+<!--                          <use href="#icon-like"></use>-->
+<!--                        </svg>-->
+<!--                    </span>-->
+<!--                    <a class="crumbs__link" href="#">BUY TICKET FOR EVENT</a>-->
+<!--                    <span class="crumbs__sep">-->
+<!--                        <svg width="6" height="11" aria-hidden="true">-->
+<!--                          <use href="#icon-like"></use>-->
+<!--                        </svg>-->
+<!--                    </span>-->
+                    <span class="crumbs__current">home</span>
+                </nav>
+            </div>
+
+
+            <!-- right: user -->
+            <div class="user-menu" data-user-menu>
+                <button class="user-menu__btn" type="button" aria-haspopup="menu" aria-expanded="false">
+                    <img class="user-menu__avatar" src="https://i.pravatar.cc/56?img=12" alt="User avatar">
+                    <div class="user-menu__meta">
+                        <div class="user-menu__name">John Brown</div>
+                        <div class="user-menu__role">TEAMS PORTAL</div>
+                    </div>
+                    <span class="user-menu__chev" aria-hidden="true">
+                        <svg width="7" height="5" aria-hidden="true">
+                          <use href="#icon-triangle-down"></use>
+                        </svg>
+                    </span>
+                </button>
+
+                <div class="user-menu__drop" role="menu">
+                    <a class="user-menu__item" href="#" role="menuitem">
+                        <svg width="16" height="16" aria-hidden="true">
+                            <use href="#icon-refresh"></use>
+                        </svg>
+                        Order History
+                    </a>
+                    <a class="user-menu__item" href="#" role="menuitem">
+                        <svg width="16" height="16" aria-hidden="true">
+                            <use href="#icon-logout"></use>
+                        </svg>
+                        Log out
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+<section class="home-events">
+    <div class="container">
+        <div class="home-events-wr">
+            <h1>Please select championship</h1>
+            <div class="items">
+                <a class="home-event" href="ticket.html">
+                    <img src="img/jap-cup.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+                <a class="home-event" href="ticket.html">
+                    <img src="img/brit-champ.svg" alt="">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-wr">
+            <div class="footer-left">
+                <div class="footer-copy">
+                    © GT WORLD CHALLENGE 2026
+                </div>
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li>
+                        <a class="link-gray" href="#">T&Cs</a>
+                    </li>
+                    <li>
+                        <a class="link-gray" href="#">T&Cs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="script.js"></script>
 </body>
 </html>
