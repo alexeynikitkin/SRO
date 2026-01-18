@@ -291,6 +291,9 @@ h2 {
     cursor: pointer;
     border: none;
     transition: 1s all;
+    text-decoration: none;
+    text-align: center;
+
 }
 
 
@@ -301,6 +304,8 @@ h2 {
 .button-primary[disabled] {
     background: #DCDFE3;
     color: #A0A3A9;
+    cursor: not-allowed;
+
 }
 
 .button-secondary {
@@ -315,12 +320,70 @@ h2 {
     cursor: pointer;
     transition: 1s all;
     border: 1px solid var(--brand-red);
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.button-icon {
+    background: var(--brand-red-grad);
+    padding: 15px 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 170%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s all;
+    border: 2px solid var(--brand-red);
+    text-decoration: none;
+    text-align: center;
 }
 
 
 .button-secondary:hover {
     background: var(--brand-red-grad);
     color: #fff;
+}
+
+.button-icon {
+    background: var(--brand-red-grad);
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 170%;
+    border-radius: 10px;
+    cursor: pointer;
+    /*transition: 1s all;*/
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    max-width: 120px;
+}
+
+.button-icon:hover {
+    color: var(--brand-red);
+    background: #fff;
+    border: 2px solid var(--brand-red);
+}
+
+.button-icon:hover svg {
+    color: var(--brand-red);
+}
+
+.button-icon[disabled] {
+    background: #DCDFE3;
+    color: #A0A3A9;
+    border: 2px solid #DCDFE3;
+    cursor: not-allowed;
+}
+
+.button-icon[disabled] svg {
+    color: #A0A3A9;
 }
 
 
@@ -526,6 +589,7 @@ a.link:hover::after {
 
 .search-dropdown li:hover {
     background: #F9FAFB;
+    color: var(--brand-red);
 }
 
 .search-dropdown .highlight {
@@ -591,12 +655,14 @@ a.link:hover::after {
 }
 
 .field__control:before {
-    content: url('img/rect.png');
+    content: url('img/rect.svg');
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
     transform: translate(0px, -5px);
+    width: 12px;
+    height: 12px;
 }
 
 .field__input{
@@ -611,6 +677,7 @@ a.link:hover::after {
     line-height: 1;
     color: var(--text);
     outline: none;
+    font-family: 'Univia Pro', sans-serif;
 
 }
 
@@ -640,6 +707,7 @@ a.link:hover::after {
     background: var(--field-bg-2);
     border-color: var(--border-error);
     color: var(--error);
+
 }
 .field.is-error .field__msg{
     color: var(--error);
@@ -672,6 +740,10 @@ a.link:hover::after {
 /* ==== Password (eye toggle) ==== */
 .field--password .field__input{
     padding-right: calc(var(--px) + 34px); /* місце під іконку справа */
+}
+
+.field--password.is-error svg {
+    color: var(--brand-red);
 }
 
 .toggle-btn{
@@ -1021,7 +1093,7 @@ section {
     z-index: 2;
     width: 12px;
     height: 12px;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 }
 
 .event-hero__img{
@@ -1137,23 +1209,19 @@ section {
     border-radius: 10px;
     cursor: pointer;
     border: none;
-    transition: 1s all;
     background: #7C7E82;
     color: #fff;
     z-index: 10;
     max-width: 140px;
+    text-decoration: none;
+    text-align: center;
+    transition: 1s ease;
 }
 
 .btn-buy:hover {
-  opacity: .7;
+    background: var(--brand-red-grad);
 }
 
-.btn--ghost{
-    width: 100%;
-    background: #6b7280;
-    color: #fff;
-    margin-top: auto;
-}
 
 /* grid cards */
 .events-grid{

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+    <symbol id="icon_search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon_close" viewBox="0 0 24 24">
+        <line x1="6" y1="6" x2="18" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+        <line x1="18" y1="6" x2="6" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-like" viewBox="0 0 6 11">
+        <path d="M1.1417 0L0 1.23375L3.7085 5.25L0 9.26625L1.1417 10.5L6 5.25L1.1417 0Z" fill="#BDC0C7"/>
+    </symbol>
+
+
+    <symbol id="icon-triangle-down" viewBox="0 0 7 5">
+        <path d="M3.5 4.5L0 0L7 4.54262e-07L3.5 4.5Z" fill="black"/>
+    </symbol>
+
+    <symbol id="icon-refresh" viewBox="0 0 16 16" fill="none">
+        <path d="M0.666992 2.66675V6.66675H4.66699"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.333 13.3333V9.33325H11.333"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.6603 5.99989C13.3222 5.04441 12.7476 4.19016 11.99 3.51683C11.2325 2.84351 10.3167 2.37306 9.32813 2.14939C8.33959 1.92572 7.31049 1.95612 6.33687 2.23774C5.36324 2.51936 4.47682 3.04303 3.76033 3.75989L0.666992 6.66655M15.3337 9.33322L12.2403 12.2399C11.5238 12.9567 10.6374 13.4804 9.66379 13.762C8.69016 14.0437 7.66106 14.0741 6.67252 13.8504C5.68397 13.6267 4.76819 13.1563 4.01064 12.4829C3.25308 11.8096 2.67844 10.9554 2.34033 9.99989"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-logout" viewBox="0 0 16 16" fill="none">
+        <path d="M5.83301 2.16675L3.16634 2.16675C2.81272 2.16675 2.47358 2.30722 2.22353 2.55727C1.97348 2.80732 1.83301 3.14646 1.83301 3.50008L1.83301 12.8334C1.83301 13.187 1.97348 13.5262 2.22353 13.7762C2.47358 14.0263 2.81272 14.1667 3.16634 14.1667L5.83301 14.1667"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.833 4.83374L14.1663 8.16707L10.833 11.5004"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.83301 8.16724L13.833 8.16724"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-download" viewBox="0 0 16 16" fill="none">
+        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 6.66675L8.00008 10.0001L11.3334 6.66675"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 10V2"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+
+
+
+
+
+</svg>
+
+<header class="site-header">
+    <div class="container">
+        <div class="site-header__inner">
+            <!-- left: logo -->
+            <div class="header-left">
+                <a class="brand" href="index.html">
+                    <img src="img/logo.svg" alt="logo">
+                </a>
+
+                <img src="img/line.svg" alt="line">
+
+                <!-- center: breadcrumbs -->
+                <nav class="crumbs" aria-label="Breadcrumb">
+<!--                    <a class="crumbs__link" href="#">HOME</a>-->
+<!--                    <span class="crumbs__sep">-->
+<!--                        <svg width="6" height="11" aria-hidden="true">-->
+<!--                          <use href="#icon-like"></use>-->
+<!--                        </svg>-->
+<!--                    </span>-->
+<!--                    <a class="crumbs__link" href="#">BUY TICKET FOR EVENT</a>-->
+<!--                    <span class="crumbs__sep">-->
+<!--                        <svg width="6" height="11" aria-hidden="true">-->
+<!--                          <use href="#icon-like"></use>-->
+<!--                        </svg>-->
+<!--                    </span>-->
+                    <span class="crumbs__current">home</span>
+                </nav>
+            </div>
+
+
+            <!-- right: user -->
+            <div class="user-menu" data-user-menu>
+                <button class="user-menu__btn" type="button" aria-haspopup="menu" aria-expanded="false">
+                    <img class="user-menu__avatar" src="https://i.pravatar.cc/56?img=12" alt="User avatar">
+                    <div class="user-menu__meta">
+                        <div class="user-menu__name">John Brown</div>
+                        <div class="user-menu__role">TEAMS PORTAL</div>
+                    </div>
+                    <span class="user-menu__chev" aria-hidden="true">
+                        <svg width="7" height="5" aria-hidden="true">
+                          <use href="#icon-triangle-down"></use>
+                        </svg>
+                    </span>
+                </button>
+
+                <div class="user-menu__drop" role="menu">
+                    <a class="user-menu__item" href="#" role="menuitem">
+                        <svg width="16" height="16" aria-hidden="true">
+                            <use href="#icon-refresh"></use>
+                        </svg>
+                        Order History
+                    </a>
+                    <a class="user-menu__item" href="#" role="menuitem">
+                        <svg width="16" height="16" aria-hidden="true">
+                            <use href="#icon-logout"></use>
+                        </svg>
+                        Log out
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+    <style>
+
+        .orders{
+            padding: 20px 0;
+        }
+
+        /* горизонтальний скрол на малих екранах */
+        .orders__scroll{
+            border-radius: 10px;
+
+        }
+
+        .orders__grid{
+            /*min-width:1100px; !* як на скріні *!*/
+        }
+
+        /* Рядок (header/body) */
+        .row{
+            display:flex;
+            align-items:center;
+            width:100%;
+        }
+
+        .row--head{
+            background:#fff;
+            border-bottom:1px solid #e9e9e9;
+        }
+
+        .row--item{
+            border-bottom:1px solid #e9e9e9;
+            background:#ffffff;
+            transition:background .15s ease;
+        }
+
+        .row--item:nth-child(even){
+            background:#f6f6f6;
+        }
+
+        .row--item:hover{
+            background:#efefef;
+        }
+
+        .row--item.is-active{
+            background:#d9d9d9 !important;
+        }
+
+        .cell{
+            padding:16px 16px;
+            font-size:13px;
+            line-height:1.2;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            min-width:0;
+            box-sizing:border-box;
+        }
+
+        /* Колонки — фіксована ширина як у таблиці */
+        .col-order{ width:170px; flex:0 0 170px; }
+        .col-invoice{ width:170px; flex:0 0 170px; }
+        .col-date{ width:140px; flex:0 0 140px; }
+        .col-amount{ width:140px; flex:0 0 140px; }
+        .col-champ{ width:260px; flex:0 0 260px; }
+        .col-location{ flex:1 1 auto; }
+
+        .head{
+            padding:14px 16px;
+            font-size:12px;
+            font-weight:700;
+            text-transform:uppercase;
+            letter-spacing:.04em;
+            color:#e24a3b;
+        }
+
+        .head__inner{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+        }
+
+        .sort{
+            width:10px;
+            height:10px;
+            color:#e24a3b;
+            opacity:.9;
+            flex:0 0 auto;
+        }
+
+        .invoice{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            min-width:0;
+        }
+
+        .icon-btn{
+            width:28px;
+            height:28px;
+            border:0;
+            border-radius:6px;
+            background:transparent;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            flex:0 0 auto;
+        }
+
+        .icon-btn:hover{
+            background:rgba(226,74,59,.08);
+        }
+
+        .download{
+            width:16px;
+            height:16px;
+            fill:none;
+            stroke:#e24a3b;
+            stroke-width:2;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+        }
+
+        .muted{ color:#6b7280; }
+    </style>
+
+
+
+
+    <div class="orders">
+        <div class="container">
+            <div class="events__top">
+                <h1>ORDER HISTORY</h1>
+
+                <div class="search-field">
+                    <div class="search-control">
+            <span class="search-icon">
+                <svg class="icon">
+                    <use href="#icon_search"></use>
+                </svg>
+            </span>
+
+                        <input
+                                type="text"
+                                placeholder="Search"
+                                class="search-input"
+                        />
+
+                        <button class="search-clear" type="button">
+                            <svg class="icon">
+                                <use href="#icon_close"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="search-error">You made mistake</div>
+
+                    <ul class="search-dropdown">
+                        <li>Some Taxi</li>
+                        <li>Some Text</li>
+                        <li>Some Texture</li>
+                        <li>Some Texture 1</li>
+                        <li>Some Texture 3</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="orders__scroll">
+                <div class="orders__grid">
+                    <!-- HEADER -->
+                    <div class="row row--head">
+                        <div class="cell head col-order">
+              <span class="head__inner">ORDER
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+
+                        <div class="cell head col-invoice">
+              <span class="head__inner">INVOICE
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+
+                        <div class="cell head col-date">
+              <span class="head__inner">DATE
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+
+                        <div class="cell head col-amount">
+              <span class="head__inner">AMOUNT
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+
+                        <div class="cell head col-champ">
+              <span class="head__inner">CHAMPIONSHIP
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+
+                        <div class="cell head col-location">
+              <span class="head__inner">LOCATION
+                <svg class="sort" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M1 3.5h8L5 8.5 1 3.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+                        </div>
+                    </div>
+
+                    <!-- ROWS -->
+                    <div class="row row--item">
+                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-invoice">
+                            <div class="invoice">
+                                <button class="icon-btn" aria-label="Download invoice">
+                                    <svg class="download" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v10"></path>
+                                        <path d="M8 11l4 4 4-4"></path>
+                                        <path d="M5 21h14"></path>
+                                    </svg>
+                                </button>
+                                <span>CS-PAR-25-0001</span>
+                            </div>
+                        </div>
+                        <div class="cell col-date">24/12/2025</div>
+                        <div class="cell col-amount">15.00 EUR</div>
+                        <div class="cell col-champ">GTWC - NURBURGRING</div>
+                        <div class="cell col-location">F247+RG Khmelnytskyi, Khmelnytskyi region</div>
+                    </div>
+
+                    <div class="row row--item">
+                        <div class="cell col-order">SO-LON-25-1276</div>
+                        <div class="cell col-invoice"><span class="muted">-</span></div>
+                        <div class="cell col-date">24/12/2025</div>
+                        <div class="cell col-amount">15.00 EUR</div>
+                        <div class="cell col-champ">BGT - R8 - Brands Hatch - 2026</div>
+                        <div class="cell col-location">M74G+3GC Valladolid, Spain</div>
+                    </div>
+
+                    <div class="row row--item">
+                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-invoice">
+                            <div class="invoice">
+                                <button class="icon-btn" aria-label="Download invoice">
+                                    <svg class="download" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v10"></path>
+                                        <path d="M8 11l4 4 4-4"></path>
+                                        <path d="M5 21h14"></path>
+                                    </svg>
+                                </button>
+                                <span>CS-PAR-25-0001</span>
+                            </div>
+                        </div>
+                        <div class="cell col-date">24/12/2025</div>
+                        <div class="cell col-amount">15.00 EUR</div>
+                        <div class="cell col-champ">BGT - R8 - Brands Hatch - 2026</div>
+                        <div class="cell col-location">RCMX+8XQ Damoh, Madhya Pradesh, India</div>
+                    </div>
+
+                    <div class="row row--item">
+                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-invoice">
+                            <div class="invoice">
+                                <button class="icon-btn" aria-label="Download invoice">
+                                    <svg class="download" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v10"></path>
+                                        <path d="M8 11l4 4 4-4"></path>
+                                        <path d="M5 21h14"></path>
+                                    </svg>
+                                </button>
+                                <span>CS-PAR-25-0001</span>
+                            </div>
+                        </div>
+                        <div class="cell col-date">24/12/2025</div>
+                        <div class="cell col-amount">15.00 EUR</div>
+                        <div class="cell col-champ">GTWC - NURBURGRING</div>
+                        <div class="cell col-location">MG28+2M3 Koktal, Kazakhstan</div>
+                    </div>
+
+                    <div class="row row--item">
+                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-invoice"><span class="muted">-</span></div>
+                        <div class="cell col-date">24/12/2025</div>
+                        <div class="cell col-amount">15.00 EUR</div>
+                        <div class="cell col-champ">GTWC - NURBURGRING</div>
+                        <div class="cell col-location">7G5W+XV2 Rzeszów, Poland</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-wr">
+            <div class="footer-left">
+                <div class="footer-copy">
+                    © GT WORLD CHALLENGE 2026
+                </div>
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li>
+                        <a class="link-gray" href="#">T&Cs</a>
+                    </li>
+                    <li>
+                        <a class="link-gray" href="#">T&Cs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
