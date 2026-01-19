@@ -43,6 +43,10 @@
         <path d="M3.5 4.5L0 0L7 4.54262e-07L3.5 4.5Z" fill="black"/>
     </symbol>
 
+    <symbol id="icon-triangle-up" viewBox="0 0 7 5">
+        <path d="M3.5 -3.0598e-07L7 4.5L4.76837e-07 4.5L3.5 -3.0598e-07Z" fill="black"/>
+    </symbol>
+
     <symbol id="icon-refresh" viewBox="0 0 16 16" fill="none">
         <path d="M0.666992 2.66675V6.66675H4.66699"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,12 +74,50 @@
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
+    <symbol id="icon-eye" viewBox="0 0 16 16" fill="none">
+        <g clip-path="url(#icon-eye-clip)">
+            <path d="M0.666748 7.99984C0.666748 7.99984 3.33341 2.6665 8.00008 2.6665C12.6667 2.6665 15.3334 7.99984 15.3334 7.99984C15.3334 7.99984 12.6667 13.3332 8.00008 13.3332C3.33341 13.3332 0.666748 7.99984 0.666748 7.99984Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <defs>
+            <clipPath id="icon-eye-clip">
+                <rect width="16" height="16" />
+            </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-eye-off" viewBox="0 0 16 16" fill="none">
+        <g clip-path="url(#icon-eye-off-clip)">
+            <path d="M7.16193 3.39488C7.43293 3.35482 7.7124 3.33333 8.00026 3.33333C11.4036 3.33333 13.6369 6.33656 14.3871 7.52453C14.4779 7.66833 14.5233 7.7402 14.5487 7.85113C14.5679 7.9344 14.5678 8.0658 14.5487 8.14907C14.5233 8.25993 14.4776 8.33233 14.3861 8.47707C14.1862 8.7934 13.8815 9.23807 13.4777 9.72033M4.48288 4.47669C3.0415 5.45447 2.06296 6.81293 1.61407 7.52353C1.52285 7.66793 1.47725 7.74013 1.45183 7.851C1.43273 7.93427 1.43272 8.0656 1.4518 8.14893C1.47722 8.2598 1.52262 8.33167 1.61342 8.47547C2.36369 9.66347 4.59694 12.6667 8.00026 12.6667C9.37253 12.6667 10.5546 12.1784 11.5259 11.5177M2.00028 2L14.0003 14M6.58607 6.58579C6.22413 6.94773 6.00028 7.44773 6.00028 8C6.00028 9.1046 6.89573 10 8.00026 10C8.55253 10 9.05253 9.77613 9.41447 9.4142"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <defs>
+            <clipPath id="icon-eye-off-clip">
+                <rect width="16" height="16" />
+            </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-arrow-right" viewBox="0 0 6 11" fill="none">
+        <path d="M1.1417 0L0 1.23375L3.7085 5.25L0 9.26625L1.1417 10.5L6 5.25L1.1417 0Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-arrow-left" viewBox="0 0 6 11" fill="none">
+        <path d="M4.8583 10.5L6 9.26625L2.2915 5.25L6 1.23375L4.8583 -9.98106e-08L4.5897e-07 5.25L4.8583 10.5Z"
+              fill="currentColor"/>
+    </symbol>
+
 
 
 
 
 
 </svg>
+
 
 
 <header class="site-header">
@@ -117,8 +159,11 @@
                         <div class="user-menu__role">TEAMS PORTAL</div>
                     </div>
                     <span class="user-menu__chev" aria-hidden="true">
-                        <svg width="7" height="5" aria-hidden="true">
+                        <svg width="7" height="5" aria-hidden="true" class="icon-triangle-down">
                           <use href="#icon-triangle-down"></use>
+                        </svg>
+                        <svg width="7" height="5" aria-hidden="true" class="icon-triangle-up">
+                          <use href="#icon-triangle-up"></use>
                         </svg>
                     </span>
                 </button>
@@ -128,13 +173,17 @@
                         <svg width="16" height="16" aria-hidden="true">
                             <use href="#icon-refresh"></use>
                         </svg>
+                        <span>
                         Order History
+                        </span>
                     </a>
                     <a class="user-menu__item" href="#" role="menuitem">
                         <svg width="16" height="16" aria-hidden="true">
                             <use href="#icon-logout"></use>
                         </svg>
+                        <span>
                         Log out
+                        </span>
                     </a>
                 </div>
             </div>
@@ -142,6 +191,7 @@
         </div>
     </div>
 </header>
+
 
 
 
