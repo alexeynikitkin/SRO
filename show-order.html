@@ -199,8 +199,7 @@
     <div class="orders new">
         <div class="container">
             <div class="events__top">
-                <h1>ORDER DETAILS: <span class="sub-title1">Crowdstrike</span> / <span class="sub-title2">miami gt opening drive</span></h1>
-
+                <h1>ORDER DETAILS: <span class="sub-title1">Crowdstrike</span> <span>/</span> <span class="sub-title2">miami gt opening drive</span></h1>
             </div>
             <div class="orders__create">
                 <div class="orders__create-top">
@@ -233,18 +232,17 @@
                                 <div class="title">BILLING ADDRESS:</div>
                                 <div class="text">CDG Teams Portal, Chaussee de Waterloo 1500 Uccle, Belgium, 1180</div>
                             </div>
-                            <div class="item">
-                            </div>
+
                         </div>
 
                     </div>
                     <div class="right">
                         <div class="qr-block">
-                            <img src="" alt="">
-                            <a href="#">Show QR ( 2 )</a>
+                            <img src="img/qr.svg" alt="qr">
+                            <a class="show-modal" href="#">Show QR ( 2 )</a>
                         </div>
 
-                        <a class="button-icon" href="#">
+                        <a class="button-icon l" href="#">
                             <svg width="12" height="12" aria-hidden="true">
                                 <use href="#icon-download"></use>
                             </svg>
@@ -386,5 +384,227 @@
 
 
 <script src="script.js"></script>
+
+
+<div class="modal download-modal" id="downloadModal" aria-hidden="true">
+    <div class="modal__overlay" data-close="overlay"></div>
+
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+        <button class="modal__close" type="button" aria-label="Close" data-close="x">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <g clip-path="url(#clip0_5082_8726)">
+                    <path d="M7.99967 14.6666C11.6816 14.6666 14.6663 11.6818 14.6663 7.99992C14.6663 4.31802 11.6816 1.33325 7.99967 1.33325C4.31778 1.33325 1.33301 4.31802 1.33301 7.99992C1.33301 11.6818 4.31778 14.6666 7.99967 14.6666Z" stroke="url(#paint0_linear_5082_8726)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 6L6 10" stroke="url(#paint1_linear_5082_8726)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L10 10" stroke="url(#paint2_linear_5082_8726)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                    <linearGradient id="paint0_linear_5082_8726" x1="1.33301" y1="7.95264" x2="14.6663" y2="7.95264" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#D03625"/>
+                        <stop offset="1" stop-color="#912817"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_5082_8726" x1="6" y1="7.98582" x2="10" y2="7.98582" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#D03625"/>
+                        <stop offset="1" stop-color="#912817"/>
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_5082_8726" x1="6" y1="7.98582" x2="10" y2="7.98582" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#D03625"/>
+                        <stop offset="1" stop-color="#912817"/>
+                    </linearGradient>
+                    <clipPath id="clip0_5082_8726">
+                        <rect width="16" height="16" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+        </button>
+
+        <div class="ticket">
+            <div class="ticket__top">
+                <div class="ticket__event">CROWDSTRIKE / MIAMI GT OPENING DRIVE</div>
+            </div>
+            <div class="tickets">
+                <div class="ticket__inner">
+                    <div class="ticket__grid">
+                        <div class="ticket__left">
+                            <h3 class="ticket__title">
+                                THIS QR CODE COVERS ALL ITEMS MENTIONED ON THE LIST BELOW.
+                            </h3>
+                            <p class="ticket__hint">Present once during collection.</p>
+                        </div>
+
+                        <div class="ticket__qr">
+                            <!-- Можеш підставити реальний img/qr -->
+                            <img src="img/qr.svg" alt="QR code" />
+                        </div>
+                    </div>
+
+                    <div class="ticket__table">
+                        <div class="t-head">
+                            <div class="t-col item">ITEM</div>
+                            <div class="t-col quantity">QUANTITY</div>
+                        </div>
+
+                        <div class="t-row">
+                            <div class="t-col item">
+                                <div class="lines">
+                                    <div>Paddock Pass</div>
+                                    <div>Grid Walk Pass</div>
+                                    <div>Parking Pass</div>
+                                </div>
+                            </div>
+                            <div class="t-col quantity">
+                                <div class="lines num">
+                                    <div>3</div>
+                                    <div>3</div>
+                                    <div>3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket__notice">
+                        <div class="notice__icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <g clip-path="url(#clip0_5259_438)">
+                                    <path d="M6.69069 1.90587L0.205222 12.7328C0.0715062 12.9644 0.000754718 13.227 6.0047e-06 13.4943C-0.000742709 13.7617 0.0685375 14.0247 0.200954 14.257C0.333371 14.4893 0.524308 14.6829 0.754769 14.8185C0.985231 14.9541 1.24718 15.027 1.51457 15.0299H14.4855C14.7529 15.027 15.0148 14.9541 15.2453 14.8185C15.4758 14.6829 15.6667 14.4893 15.7991 14.257C15.9315 14.0247 16.0008 13.7617 16.0001 13.4943C15.9993 13.227 15.9286 12.9644 15.7948 12.7328L9.30938 1.90587C9.17287 1.68084 8.98068 1.49478 8.75133 1.36566C8.52198 1.23654 8.26323 1.1687 8.00003 1.1687C7.73683 1.1687 7.47808 1.23654 7.24873 1.36566C7.01938 1.49478 6.82719 1.68084 6.69069 1.90587Z" fill="#FF5C5C"/>
+                                    <path d="M8 5.84155V8.90435" stroke="white" stroke-width="2.29709" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 11.9673H8.00667" stroke="white" stroke-width="2.29709" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_5259_438">
+                                        <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="notice__text">
+                            Passes must be picked up from the point that you designate above.
+                            Please present this QR code to collect these items from the designated
+                            collection point. All orders not collected 48 hours before the race
+                            date will be sent to the Welcome Centre for collection.
+                        </div>
+                    </div>
+                </div>
+                <div class="ticket__inner">
+                    <div class="ticket__grid">
+                        <div class="ticket__left">
+                            <h3 class="ticket__title">
+                                THIS QR CODE COVERS ALL ITEMS MENTIONED ON THE LIST BELOW.
+                            </h3>
+                            <p class="ticket__hint">Present once during collection.</p>
+                        </div>
+
+                        <div class="ticket__qr">
+                            <!-- Можеш підставити реальний img/qr -->
+                            <img src="img/qr.svg" alt="QR code" />
+                        </div>
+                    </div>
+
+                    <div class="ticket__table">
+                        <div class="t-head">
+                            <div class="t-col item">ITEM</div>
+                            <div class="t-col quantity">QUANTITY</div>
+                        </div>
+
+                        <div class="t-row">
+                            <div class="t-col item">
+                                <div class="lines">
+                                    <div>Paddock Pass</div>
+                                    <div>Grid Walk Pass</div>
+                                    <div>Parking Pass</div>
+                                </div>
+                            </div>
+                            <div class="t-col quantity">
+                                <div class="lines num">
+                                    <div>3</div>
+                                    <div>3</div>
+                                    <div>3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket__notice">
+                        <div class="notice__icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <g clip-path="url(#clip0_5259_438)">
+                                    <path d="M6.69069 1.90587L0.205222 12.7328C0.0715062 12.9644 0.000754718 13.227 6.0047e-06 13.4943C-0.000742709 13.7617 0.0685375 14.0247 0.200954 14.257C0.333371 14.4893 0.524308 14.6829 0.754769 14.8185C0.985231 14.9541 1.24718 15.027 1.51457 15.0299H14.4855C14.7529 15.027 15.0148 14.9541 15.2453 14.8185C15.4758 14.6829 15.6667 14.4893 15.7991 14.257C15.9315 14.0247 16.0008 13.7617 16.0001 13.4943C15.9993 13.227 15.9286 12.9644 15.7948 12.7328L9.30938 1.90587C9.17287 1.68084 8.98068 1.49478 8.75133 1.36566C8.52198 1.23654 8.26323 1.1687 8.00003 1.1687C7.73683 1.1687 7.47808 1.23654 7.24873 1.36566C7.01938 1.49478 6.82719 1.68084 6.69069 1.90587Z" fill="#FF5C5C"/>
+                                    <path d="M8 5.84155V8.90435" stroke="white" stroke-width="2.29709" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 11.9673H8.00667" stroke="white" stroke-width="2.29709" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_5259_438">
+                                        <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="notice__text">
+                            Passes must be picked up from the point that you designate above.
+                            Please present this QR code to collect these items from the designated
+                            collection point. All orders not collected 48 hours before the race
+                            date will be sent to the Welcome Centre for collection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+<!--            <div class="ticket__actions">-->
+<!--                <a class="button-icon" href="#">-->
+<!--                    <svg width="12" height="12" aria-hidden="true">-->
+<!--                        <use href="#icon-download"></use>-->
+<!--                    </svg>-->
+<!--                    Download PDF-->
+<!--                </a>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        const trigger = document.querySelector('.show-modal');
+        const modal = document.getElementById('downloadModal');
+        const overlay = modal.querySelector('.modal__overlay');
+        const closeBtn = modal.querySelector('[data-close="x"]');
+
+        function openModal() {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-lock');
+
+            // фокус на модалку (простий accessibility)
+            const focusTarget = closeBtn || modal.querySelector('a,button,input,textarea,select');
+            focusTarget && focusTarget.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-lock');
+            trigger && trigger.focus();
+        }
+
+        // open on click
+        if (trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        // close interactions
+        overlay.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    })();
+</script>
+
+
 </body>
 </html>
