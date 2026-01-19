@@ -44,6 +44,10 @@
         <path d="M3.5 4.5L0 0L7 4.54262e-07L3.5 4.5Z" fill="black"/>
     </symbol>
 
+    <symbol id="icon-triangle-up" viewBox="0 0 7 5">
+        <path d="M3.5 -3.0598e-07L7 4.5L4.76837e-07 4.5L3.5 -3.0598e-07Z" fill="black"/>
+    </symbol>
+
     <symbol id="icon-refresh" viewBox="0 0 16 16" fill="none">
         <path d="M0.666992 2.66675V6.66675H4.66699"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -154,8 +158,11 @@
                         <div class="user-menu__role">TEAMS PORTAL</div>
                     </div>
                     <span class="user-menu__chev" aria-hidden="true">
-                        <svg width="7" height="5" aria-hidden="true">
+                        <svg width="7" height="5" aria-hidden="true" class="icon-triangle-down">
                           <use href="#icon-triangle-down"></use>
+                        </svg>
+                        <svg width="7" height="5" aria-hidden="true" class="icon-triangle-up">
+                          <use href="#icon-triangle-up"></use>
                         </svg>
                     </span>
                 </button>
@@ -291,265 +298,22 @@
 
 
 
-    <!-- DEMO WRAP (можеш прибрати) -->
-    <div class="demo-wrap">
-        <nav class="pagination" aria-label="Pagination">
-            <ul class="pagination__list" id="pagination"></ul>
-        </nav>
+    <nav class="pagination" aria-label="Pagination">
+        <ul class="pagination__list" id="pagination"></ul>
+    </nav>
+
+    <div class="qty-stepper" data-min="10" data-max="30" data-step="10" aria-label="Quantity stepper">
+        <div class="qty-stepper__arrows">
+            <button type="button" class="qty-stepper__btn qty-stepper__btn--up" aria-label="Increase"></button>
+            <button type="button" class="qty-stepper__btn qty-stepper__btn--down" aria-label="Decrease"></button>
+        </div>
+
+        <div class="qty-stepper__value" aria-live="polite">10</div>
     </div>
 
-    <style>
-        :root{
-            --pg-accent: #b73227;     /* червоний */
-            --pg-text: #111;
-            --pg-muted: #777;
-            --pg-radius: 0.5rem;
-            --pg-size: 3rem;         /* квадрат кнопки */
-            --pg-gap: 1rem;
-        }
 
-        .demo-wrap{
-            /*padding: 2rem;*/
-            /*border: 2px dashed #7b5cff;*/
-            /*border-radius: 1rem;*/
-            /*display: inline-block;*/
-        }
 
-        .pagination{
-            user-select: none;
-        }
 
-        .pagination__list{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: var(--pg-gap);
-        }
-
-        .pagination__item{
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .pg-btn{
-            appearance: none;
-            border: 0;
-            background: transparent;
-            color: var(--pg-text);
-            font: inherit;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: var(--pg-size);
-            height: var(--pg-size);
-            padding: 0 0.75rem;
-            border-radius: var(--pg-radius);
-            line-height: 1;
-            transition: transform .08s ease, color .12s ease, background-color .12s ease;
-        }
-
-        .pg-btn:hover{
-            color: var(--brand-red);
-        }
-
-        .pg-btn:active{
-            transform: translateY(0);
-        }
-
-        /* Числа: компактніше (квадрат) */
-        .pg-btn--page{
-            width: var(--pg-size);
-            padding: 0;
-        }
-
-        /* Active page */
-        .pg-btn.is-active{
-            background: var(--brand-red-grad);
-            color: #fff;
-        }
-
-        /* Back / Next */
-        .pg-btn--nav{
-            gap: 0.5rem;
-            padding: 0 0.8rem;
-            min-width: auto;
-        }
-
-        .pg-btn--nav svg{
-            width: 16px;
-            height: 16px;
-        }
-
-        .pg-btn.is-disabled{
-            opacity: .35;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        /* Ellipsis */
-        .pg-ellipsis{
-            color: var(--pg-muted);
-            min-width: var(--pg-size);
-            height: var(--pg-size);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-
-    <script>
-        // ----- Pagination core -----
-        function getPaginationItems(totalPages, currentPage, siblingCount = 1, boundaryCount = 1) {
-            const totalNumbers = siblingCount * 2 + 1;               // current +/- siblings
-            const totalBlocks  = totalNumbers + boundaryCount * 2;    // + first/last boundaries
-
-            if (totalPages <= totalBlocks) {
-                return Array.from({ length: totalPages }, (_, i) => i + 1);
-            }
-
-            const leftSibling  = Math.max(currentPage - siblingCount, boundaryCount + 1);
-            const rightSibling = Math.min(currentPage + siblingCount, totalPages - boundaryCount);
-
-            const showLeftDots  = leftSibling > boundaryCount + 1;
-            const showRightDots = rightSibling < totalPages - boundaryCount;
-
-            const items = [];
-
-            // left boundary
-            for (let i = 1; i <= boundaryCount; i++) items.push(i);
-
-            // left dots
-            if (showLeftDots) items.push("dots");
-            else {
-                for (let i = boundaryCount + 1; i < leftSibling; i++) items.push(i);
-            }
-
-            // middle range
-            for (let i = leftSibling; i <= rightSibling; i++) items.push(i);
-
-            // right dots
-            if (showRightDots) items.push("dots");
-            else {
-                for (let i = rightSibling + 1; i <= totalPages - boundaryCount; i++) items.push(i);
-            }
-
-            // right boundary
-            for (let i = totalPages - boundaryCount + 1; i <= totalPages; i++) items.push(i);
-
-            return items;
-        }
-
-        function createIcon(direction = "right") {
-            // chevron like in screenshot
-            const path = direction === "left"
-                ? "M15 18l-6-6 6-6"
-                : "M9 6l6 6-6 6";
-
-            return `
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="${path}" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-    `;
-        }
-
-        function initPagination(rootEl, { totalPages = 4, currentPage = 1, siblingCount = 1, boundaryCount = 1, onPageChange }) {
-            const state = { totalPages, currentPage, siblingCount, boundaryCount, onPageChange };
-
-            function render() {
-                rootEl.innerHTML = "";
-
-                const canPrev = state.currentPage > 1;
-                const canNext = state.currentPage < state.totalPages;
-
-                // Back
-                rootEl.appendChild(renderNavButton("Back", "prev", !canPrev, createIcon("left")));
-
-                // Pages
-                const items = getPaginationItems(state.totalPages, state.currentPage, state.siblingCount, state.boundaryCount);
-                items.forEach(item => {
-                    if (item === "dots") {
-                        const li = document.createElement("li");
-                        li.className = "pagination__item";
-                        li.innerHTML = `<span class="pg-ellipsis">…</span>`;
-                        rootEl.appendChild(li);
-                        return;
-                    }
-
-                    const li = document.createElement("li");
-                    li.className = "pagination__item";
-
-                    const btn = document.createElement("button");
-                    btn.type = "button";
-                    btn.className = "pg-btn pg-btn--page" + (item === state.currentPage ? " is-active" : "");
-                    btn.textContent = item;
-                    btn.addEventListener("click", () => setPage(item));
-
-                    li.appendChild(btn);
-                    rootEl.appendChild(li);
-                });
-
-                // Next
-                rootEl.appendChild(renderNavButton("Next", "next", !canNext, createIcon("right")));
-            }
-
-            function renderNavButton(label, kind, disabled, iconSvg) {
-                const li = document.createElement("li");
-                li.className = "pagination__item";
-
-                const btn = document.createElement("button");
-                btn.type = "button";
-                btn.className = "pg-btn pg-btn--nav" + (disabled ? " is-disabled" : "");
-                btn.disabled = disabled;
-
-                if (kind === "prev") {
-                    btn.innerHTML = `${iconSvg}<span>${label}</span>`;
-                    btn.addEventListener("click", () => setPage(state.currentPage - 1));
-                } else {
-                    btn.innerHTML = `<span>${label}</span>${iconSvg}`;
-                    btn.addEventListener("click", () => setPage(state.currentPage + 1));
-                }
-
-                li.appendChild(btn);
-                return li;
-            }
-
-            function setPage(page) {
-                const next = Math.max(1, Math.min(state.totalPages, page));
-                if (next === state.currentPage) return;
-                state.currentPage = next;
-                render();
-                if (typeof state.onPageChange === "function") state.onPageChange(next);
-            }
-
-            render();
-
-            // API
-            return {
-                setPage,
-                setTotalPages(n) { state.totalPages = Math.max(1, n); if (state.currentPage > state.totalPages) state.currentPage = state.totalPages; render(); },
-                getPage() { return state.currentPage; }
-            };
-        }
-
-        // ----- Example usage -----
-        const pager = initPagination(document.getElementById("pagination"), {
-            totalPages: 4,
-            currentPage: 1,
-            siblingCount: 1,
-            boundaryCount: 1,
-            onPageChange: (page) => {
-                // тут підключаєш свій код: AJAX/фільтр/перемальовку списку товарів і т.д.
-                console.log("Page:", page);
-            }
-        });
-
-        // Для тесту можеш змінити стартову сторінку:
-        // pager.setPage(5);
-        // pager.setTotalPages(24);
-    </script>
 
 
 

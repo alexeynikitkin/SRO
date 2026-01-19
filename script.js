@@ -297,3 +297,192 @@ if(!!document.querySelectorAll('[data-toggle-password]')) {
 })();
 
 
+// ----- Pagination core -----
+
+if(!!document.querySelector('.pagination')) {
+    function getPaginationItems(totalPages, currentPage, siblingCount = 1, boundaryCount = 1) {
+        const totalNumbers = siblingCount * 2 + 1;               // current +/- siblings
+        const totalBlocks  = totalNumbers + boundaryCount * 2;    // + first/last boundaries
+
+        if (totalPages <= totalBlocks) {
+            return Array.from({ length: totalPages }, (_, i) => i + 1);
+        }
+
+        const leftSibling  = Math.max(currentPage - siblingCount, boundaryCount + 1);
+        const rightSibling = Math.min(currentPage + siblingCount, totalPages - boundaryCount);
+
+        const showLeftDots  = leftSibling > boundaryCount + 1;
+        const showRightDots = rightSibling < totalPages - boundaryCount;
+
+        const items = [];
+
+        // left boundary
+        for (let i = 1; i <= boundaryCount; i++) items.push(i);
+
+        // left dots
+        if (showLeftDots) items.push("dots");
+        else {
+            for (let i = boundaryCount + 1; i < leftSibling; i++) items.push(i);
+        }
+
+        // middle range
+        for (let i = leftSibling; i <= rightSibling; i++) items.push(i);
+
+        // right dots
+        if (showRightDots) items.push("dots");
+        else {
+            for (let i = rightSibling + 1; i <= totalPages - boundaryCount; i++) items.push(i);
+        }
+
+        // right boundary
+        for (let i = totalPages - boundaryCount + 1; i <= totalPages; i++) items.push(i);
+
+        return items;
+    }
+
+    function createIcon(direction = "right") {
+        // chevron like in screenshot
+        const path = direction === "left"
+            ? "M15 18l-6-6 6-6"
+            : "M9 6l6 6-6 6";
+
+        return `
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="${path}" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            `;
+    }
+
+    function initPagination(rootEl, { totalPages = 4, currentPage = 1, siblingCount = 1, boundaryCount = 1, onPageChange }) {
+        const state = { totalPages, currentPage, siblingCount, boundaryCount, onPageChange };
+
+        function render() {
+            rootEl.innerHTML = "";
+
+            const canPrev = state.currentPage > 1;
+            const canNext = state.currentPage < state.totalPages;
+
+            // Back
+            rootEl.appendChild(renderNavButton("Back", "prev", !canPrev, createIcon("left")));
+
+            // Pages
+            const items = getPaginationItems(state.totalPages, state.currentPage, state.siblingCount, state.boundaryCount);
+            items.forEach(item => {
+                if (item === "dots") {
+                    const li = document.createElement("li");
+                    li.className = "pagination__item";
+                    li.innerHTML = `<span class="pg-ellipsis">…</span>`;
+                    rootEl.appendChild(li);
+                    return;
+                }
+
+                const li = document.createElement("li");
+                li.className = "pagination__item";
+
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "pg-btn pg-btn--page" + (item === state.currentPage ? " is-active" : "");
+                btn.textContent = item;
+                btn.addEventListener("click", () => setPage(item));
+
+                li.appendChild(btn);
+                rootEl.appendChild(li);
+            });
+
+            // Next
+            rootEl.appendChild(renderNavButton("Next", "next", !canNext, createIcon("right")));
+        }
+
+        function renderNavButton(label, kind, disabled, iconSvg) {
+            const li = document.createElement("li");
+            li.className = "pagination__item";
+
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "pg-btn pg-btn--nav" + (disabled ? " is-disabled" : "");
+            btn.disabled = disabled;
+
+            if (kind === "prev") {
+                btn.innerHTML = `${iconSvg}<span>${label}</span>`;
+                btn.addEventListener("click", () => setPage(state.currentPage - 1));
+            } else {
+                btn.innerHTML = `<span>${label}</span>${iconSvg}`;
+                btn.addEventListener("click", () => setPage(state.currentPage + 1));
+            }
+
+            li.appendChild(btn);
+            return li;
+        }
+
+        function setPage(page) {
+            const next = Math.max(1, Math.min(state.totalPages, page));
+            if (next === state.currentPage) return;
+            state.currentPage = next;
+            render();
+            if (typeof state.onPageChange === "function") state.onPageChange(next);
+        }
+
+        render();
+
+        // API
+        return {
+            setPage,
+            setTotalPages(n) { state.totalPages = Math.max(1, n); if (state.currentPage > state.totalPages) state.currentPage = state.totalPages; render(); },
+            getPage() { return state.currentPage; }
+        };
+    }
+
+// ----- Example usage -----
+    const pager = initPagination(document.getElementById("pagination"), {
+        totalPages: 8,
+        currentPage: 1,
+        siblingCount: 1,
+        boundaryCount: 1,
+        onPageChange: (page) => {
+            // тут підключаєш свій код: AJAX/фільтр/перемальовку списку товарів і т.д.
+            console.log("Page:", page);
+        }
+    });
+
+// Для тесту можеш змінити стартову сторінку:
+// pager.setPage(5);
+// pager.setTotalPages(24);
+}
+
+if(!!document.querySelector('.qty-stepper')) {
+    document.querySelectorAll('.qty-stepper').forEach(wrap => {
+        const min = Number(wrap.dataset.min ?? 10);
+        const max = Number(wrap.dataset.max ?? 30);
+        const step = Number(wrap.dataset.step ?? 10);
+
+        const btnUp = wrap.querySelector('.qty-stepper__btn--up');
+        const btnDown = wrap.querySelector('.qty-stepper__btn--down');
+        const valueEl = wrap.querySelector('.qty-stepper__value');
+
+        let value = parseInt(valueEl.textContent, 10);
+        if (!Number.isFinite(value)) value = min;
+
+        const clamp = v => Math.min(max, Math.max(min, v));
+
+        const render = () => {
+            valueEl.textContent = String(value);
+
+            const atMin = value <= min;
+            const atMax = value >= max;
+
+            btnDown.disabled = atMin;
+            btnUp.disabled = atMax;
+
+            wrap.classList.toggle('is-min', atMin);
+            wrap.classList.toggle('is-max', atMax);
+        };
+
+        btnUp.addEventListener('click', () => { value = clamp(value + step); render(); });
+        btnDown.addEventListener('click', () => { value = clamp(value - step); render(); });
+
+        render();
+    });
+}
+
+
+
