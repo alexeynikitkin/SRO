@@ -1139,6 +1139,7 @@ section {
 .event-hero {
     border-radius: 12px;
     background: #111;
+    width: 100%;
 }
 
 .event-hero__media {
@@ -1146,7 +1147,6 @@ section {
 }
 
 .event-hero__media:before {
-
     content: url('img/rect.svg');
     position: absolute;
     top: 0;
@@ -1182,7 +1182,7 @@ section {
     inset: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(0, 0, 0, .65) 0%, rgba(0, 0, 0, .25) 55%, rgba(0, 0, 0, .12) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
     border-radius: 10px;
 
 }
@@ -1193,7 +1193,7 @@ section {
     justify-content: flex-start;
     gap: 10px;
     color: #fff;
-    padding: 26px;
+    padding: 24px;
 }
 
 .event-hero__name {
@@ -1303,6 +1303,17 @@ section {
     flex-wrap: wrap;
 }
 
+
+.events-grid__not-found {
+    padding: 200px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    flex-direction: column;
+}
+
 .event-card {
     background: #3f3f3f;
     color: #fff;
@@ -1378,7 +1389,7 @@ section {
 }
 
 .event-card__body {
-    padding: 54px 14px 14px;
+    padding: 54px 16px 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1417,54 +1428,53 @@ section {
     padding: 20px 0;
 }
 
-.orders__bottom {
+.orders .orders__bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 24px;
 }
 
-/* горизонтальний скрол на малих екранах */
-.orders__scroll {
+
+.orders  .orders__scroll {
     border-radius: 10px;
 
 }
 
 .orders__grid {
-    /*min-width:1100px; !* як на скріні *!*/
+
 }
 
-/* Рядок (header/body) */
-.row {
+.orders .row {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.row--head {
+.orders .row--head {
     background: #fff;
     border-bottom: 1px solid #e9e9e9;
 }
 
-.row--item {
+.orders .row--item {
     border-bottom: 1px solid #e9e9e9;
     background: #ffffff;
     transition: background .15s ease;
 }
 
-.row--item:nth-child(even) {
+.orders .row--item:nth-child(even) {
     background: #f6f6f6;
 }
 
-.row--item:hover {
+.orders .row--item:hover {
     background: #efefef;
 }
 
-.row--item.is-active {
+.orders .row--item.is-active {
     background: #d9d9d9 !important;
 }
 
-.cell {
+.orders .cell {
     padding: 16px 16px;
     font-size: 13px;
     line-height: 1.2;
@@ -1475,37 +1485,36 @@ section {
     box-sizing: border-box;
 }
 
-/* Колонки — фіксована ширина як у таблиці */
-.col-order {
+.orders .col-order {
     width: 170px;
     flex: 0 0 170px;
 }
 
-.col-invoice {
+.orders .col-invoice {
     width: 170px;
     flex: 0 0 170px;
 }
 
-.col-date {
+.orders .col-date {
     width: 140px;
     flex: 0 0 140px;
 }
 
-.col-amount {
+.orders .col-amount {
     width: 140px;
     flex: 0 0 140px;
 }
 
-.col-champ {
+.orders .col-champ {
     width: 260px;
     flex: 0 0 260px;
 }
 
-.col-location {
+.orders .col-location {
     flex: 1 1 auto;
 }
 
-.head {
+.orders .head {
     padding: 14px 16px;
     font-size: 11px;
     font-weight: 500;
@@ -1518,13 +1527,13 @@ section {
     -webkit-text-fill-color: transparent; /* для Chrome/Safari */
 }
 
-.head__inner {
+.orders .head__inner {
     display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-.sort {
+.orders .sort {
     width: 10px;
     height: 10px;
     color: #e24a3b;
@@ -1532,14 +1541,14 @@ section {
     flex: 0 0 auto;
 }
 
-.invoice {
+.orders .invoice {
     display: flex;
     align-items: center;
     gap: 10px;
     min-width: 0;
 }
 
-.icon-btn {
+.orders .icon-btn {
 
     border: 0;
     border-radius: 6px;
@@ -1555,7 +1564,7 @@ section {
 /*    background: rgba(226, 74, 59, .08);*/
 /*}*/
 
-.download {
+.orders .download {
     width: 16px;
     height: 16px;
     fill: none;
@@ -1564,6 +1573,160 @@ section {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+.orders__create {
+
+}
+
+.orders__create-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 126%;
+    padding: 24px;
+    background: #fff;
+    border-radius: 10px;
+    border-bottom: 2px dashed #000;
+}
+
+.orders__create-top .left {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders__create-top .left .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: flex-start;
+    width: 45%;
+}
+.orders__create-top  .left .item {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #EDEFF1;
+    padding: 8px 0;
+    justify-content: space-between;
+}
+
+.orders__create-top  .left .item .title {
+    color: transparent;
+    background-image: var(--brand-red-grad);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.orders__create-top .left .item .text {
+    max-width: 180px;
+    color: #7C7E82;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 146%;
+}
+
+.orders__create-top .right .button-icon {
+    max-width: 100%;
+}
+
+.orders__create-bottom {
+    background: #fff;
+    padding: 24px;
+}
+.order-table {
+    font-size: 11px;
+    font-weight: 500;
+    color: #000;
+
+}
+
+.order-table .t-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px 0;
+}
+
+.order-table .t-head {
+    padding: 10px 0 8px;
+    border-bottom: 1px solid #d9d9d9;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 11px;
+    color: #d33;
+}
+
+.order-table .t-body {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-table .t-col {
+
+    box-sizing: border-box;
+}
+
+/* column widths (flex-based) */
+.order-table .t-col.item   { flex: 1 1 auto; }
+.order-table .t-col.price  { flex: 0 0 140px; text-align: right; }
+.order-table .t-col.quantify    { flex: 0 0 120px; text-align: right; }
+.order-table .t-col.amount { flex: 0 0 160px; text-align: right; }
+
+.order-table .cell-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-table .line { line-height: 1.25; }
+.order-table .line.title { font-weight: 600; }
+.order-table .line.sub {
+    color: #8a8a8a;
+    font-size: 12px;
+}
+
+.order-table .num { font-variant-numeric: tabular-nums; }
+.order-table .ghost { visibility: hidden; } /* keeps same row height for multiline columns */
+
+/* totals */
+.order-table .totals {
+    padding-top: 18px;
+}
+
+.order-table .totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.totals-row .label {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.order-table .totals-row .value {
+    width: 160px;            /* align with AMOUNT column */
+    text-align: right;
+    color: #666;
+    font-weight: 400;
+}
+
+.order-table .totals-row.total {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid #d9d9d9;
+}
+
+.order-table .totals-row.total .value {
+    color: #000;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+
+
+
 
 
 
