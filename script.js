@@ -124,6 +124,35 @@ if(!!document.querySelector('.search-field')) {
 }
 
 
+if (document.querySelector('.search-field__simple')) {
+    const search = document.querySelector('.search-field__simple');
+    const input = search.querySelector('.search-input');
+    const clear = search.querySelector('.search-clear');
+
+    input.addEventListener('focus', () => {
+        search.classList.add('active');
+    });
+
+    input.addEventListener('blur', () => {
+        setTimeout(() => {
+            search.classList.remove('active');
+        }, 150);
+    });
+
+    input.addEventListener('input', () => {
+        const value = input.value;
+        search.classList.toggle('filled', value.trim() !== '');
+    });
+
+    clear.addEventListener('click', () => {
+        input.value = '';
+        search.classList.remove('filled');
+        input.focus();
+    });
+}
+
+
+
 // ===== Validation =====
 const form = document.getElementById('demoForm');
 
@@ -494,6 +523,17 @@ if(!!document.querySelector('.qty-stepper')) {
         render();
     });
 }
+
+// Lottie
+
+var animation = bodymovin.loadAnimation({
+    container: document.getElementById('my-lottie-animation'), // Контейнер
+    renderer: 'svg', // Можна 'svg', 'canvas', 'html'
+    loop: true, // Циклічне відтворення
+    autoplay: true, // Автоматичне відтворення
+    path: 'lottie/preloader.json' // Шлях до вашого JSON-файлу
+});
+
 
 
 

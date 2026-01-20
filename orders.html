@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SRO</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
 
@@ -123,12 +124,12 @@
     <div class="container">
         <div class="site-header__inner">
             <!-- left: logo -->
-            <div class="header-left">
+
                 <a class="brand" href="index.html">
                     <img src="img/logo.svg" alt="logo">
                 </a>
 
-                <img src="img/line.svg" alt="line">
+                <img src="img/line.svg" alt="line" class="line">
 
                 <!-- center: breadcrumbs -->
                 <nav class="crumbs" aria-label="Breadcrumb">
@@ -148,7 +149,7 @@
                         <span class="crumbs__current">orders</span>
                     </nav>
                 </nav>
-            </div>
+
 
 
             <!-- right: user -->
@@ -170,7 +171,7 @@
                 </button>
 
                 <div class="user-menu__drop" role="menu">
-                    <a class="user-menu__item" href="#" role="menuitem">
+                    <a class="user-menu__item" href="orders.html" role="menuitem">
                         <svg width="16" height="16" aria-hidden="true">
                             <use href="#icon-refresh"></use>
                         </svg>
@@ -203,19 +204,15 @@
             <div class="events__top">
                 <h1>ORDER HISTORY</h1>
 
-                <div class="search-field">
+                <div class="search-field__simple">
                     <div class="search-control">
-            <span class="search-icon">
-                <svg class="icon">
-                    <use href="#icon_search"></use>
-                </svg>
-            </span>
+    <span class="search-icon">
+      <svg class="icon">
+        <use href="#icon_search"></use>
+      </svg>
+    </span>
 
-                        <input
-                                type="text"
-                                placeholder="Search"
-                                class="search-input"
-                        />
+                        <input type="text" placeholder="Search" class="search-input">
 
                         <button class="search-clear" type="button">
                             <svg class="icon">
@@ -223,19 +220,11 @@
                             </svg>
                         </button>
                     </div>
-
-                    <div class="search-error">You made mistake</div>
-
-                    <ul class="search-dropdown">
-                        <li>Some Taxi</li>
-                        <li>Some Text</li>
-                        <li>Some Texture</li>
-                        <li>Some Texture 1</li>
-                        <li>Some Texture 3</li>
-                    </ul>
                 </div>
+
             </div>
             <div class="orders__scroll">
+                <div id="my-lottie-animation"></div>
                 <div class="orders__grid">
                     <!-- HEADER -->
                     <div class="row row--head">
@@ -325,8 +314,8 @@
                     </div>
 
                     <!-- ROWS -->
-                    <a class="row row--item" href="show-order.html">
-                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                    <div class="row row--item">
+                        <div class="cell col-order"><a href="show-order.html" class="link">SO-ASIA-25-0325</a></div>
                         <div class="cell col-invoice">
                             <div class="invoice">
                                 <button class="icon-btn" aria-label="Download invoice">
@@ -343,10 +332,10 @@
                         <div class="cell col-amount">15.00 EUR</div>
                         <div class="cell col-champ">GTWC - NURBURGRING</div>
                         <div class="cell col-location">F247+RG Khmelnytskyi, Khmelnytskyi region</div>
-                    </a>
+                    </div>
 
                     <div class="row row--item">
-                        <div class="cell col-order">SO-LON-25-1276</div>
+                        <div class="cell col-order"><a href="show-order.html" class="link">SO-LON-25-1276</a></div>
                         <div class="cell col-invoice"><span class="muted">-</span></div>
                         <div class="cell col-date">24/12/2025</div>
                         <div class="cell col-amount">15.00 EUR</div>
@@ -355,7 +344,7 @@
                     </div>
 
                     <div class="row row--item">
-                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-order"><a href="show-order.html" class="link">SO-ASIA-25-0325</a></div>
                         <div class="cell col-invoice">
                             <div class="invoice">
                                 <button class="icon-btn" aria-label="Download invoice">
@@ -375,7 +364,7 @@
                     </div>
 
                     <div class="row row--item">
-                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-order"><a href="show-order.html" class="link">SO-ASIA-25-0325</a></div>
                         <div class="cell col-invoice">
                             <div class="invoice">
                                 <button class="icon-btn" aria-label="Download invoice">
@@ -395,7 +384,7 @@
                     </div>
 
                     <div class="row row--item">
-                        <div class="cell col-order">SO-ASIA-25-0325</div>
+                        <div class="cell col-order"><a href="show-order.html" class="link">SO-ASIA-25-0325</a></div>
                         <div class="cell col-invoice"><span class="muted">-</span></div>
                         <div class="cell col-date">24/12/2025</div>
                         <div class="cell col-amount">15.00 EUR</div>
