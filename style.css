@@ -1825,7 +1825,7 @@ section {
     border-bottom: 1px solid #EDEFF1;
 }
 
-.order-table .totals-row:nth-last-child(2) {
+.order-table .totals-row:nth-last-child(2), .order-table .totals-row:nth-last-child(1) {
     border-bottom: unset;
 }
 
