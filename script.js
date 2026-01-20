@@ -473,16 +473,61 @@ if(!!document.querySelector('.pagination')) {
     }
 
 // ----- Example usage -----
-    const pager = initPagination(document.getElementById("pagination"), {
-        totalPages: 8,
-        currentPage: 1,
-        siblingCount: 1,
-        boundaryCount: 1,
-        onPageChange: (page) => {
-            // тут підключаєш свій код: AJAX/фільтр/перемальовку списку товарів і т.д.
-            console.log("Page:", page);
+    if (!!document.querySelector('.pagination')) {
+        // ...твій код пагінації вище без змін...
+
+        // ---- Loader / Grid toggler ----
+        const ordersGrid = document.querySelector('.orders__grid');
+
+        // ✅ Заміни селектор на свій контейнер лотті:
+        // наприклад: .orders__loader або #ordersLottie
+        const lottieWrap = document.querySelector('#my-lottie-animation');
+
+        let loadingTimer = null;
+        let isLoading = false;
+
+        function setLoading(loading) {
+            isLoading = loading;
+
+            if (ordersGrid) ordersGrid.style.display = loading ? 'none' : '';
+            if (lottieWrap) lottieWrap.style.display = loading ? '' : 'none';
+
+            // опційно: блокувати пагінацію під час лоадінга
+            document.querySelectorAll('#pagination button').forEach(btn => {
+                btn.disabled = loading;
+                btn.classList.toggle('is-disabled', loading);
+            });
         }
-    });
+
+        // стартово: лотті сховане, таблиця показана
+        if (lottieWrap) lottieWrap.style.display = 'none';
+
+        // ----- Example usage -----
+        const pager = initPagination(document.getElementById("pagination"), {
+            totalPages: 8,
+            currentPage: 1,
+            siblingCount: 1,
+            boundaryCount: 1,
+            onPageChange: (page) => {
+                console.log("Page:", page);
+
+                // якщо лотті/таблиці нема — просто виходимо
+                if (!ordersGrid || !lottieWrap) return;
+
+                // якщо вже йде "завантаження" — перезапускаємо
+                if (loadingTimer) clearTimeout(loadingTimer);
+
+                setLoading(true);
+
+                // ✅ тут можеш викликати реальний ajax/fetch замість setTimeout
+                loadingTimer = setTimeout(() => {
+                    setLoading(false);
+                    loadingTimer = null;
+                }, 2000); // "пару секунд"
+            }
+        });
+    }
+
 
 // Для тесту можеш змінити стартову сторінку:
 // pager.setPage(5);
