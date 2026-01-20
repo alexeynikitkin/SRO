@@ -570,14 +570,16 @@ if(!!document.querySelector('.qty-stepper')) {
 }
 
 // Lottie
+if(!!document.getElementById('my-lottie-animation')) {
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('my-lottie-animation'), // Контейнер
+        renderer: 'svg', // Можна 'svg', 'canvas', 'html'
+        loop: true, // Циклічне відтворення
+        autoplay: true, // Автоматичне відтворення
+        path: 'lottie/preloader.json' // Шлях до вашого JSON-файлу
+    });
+}
 
-var animation = bodymovin.loadAnimation({
-    container: document.getElementById('my-lottie-animation'), // Контейнер
-    renderer: 'svg', // Можна 'svg', 'canvas', 'html'
-    loop: true, // Циклічне відтворення
-    autoplay: true, // Автоматичне відтворення
-    path: 'lottie/preloader.json' // Шлях до вашого JSON-файлу
-});
 
 
 
