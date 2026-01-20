@@ -301,8 +301,8 @@ if(!!document.querySelectorAll('[data-toggle-password]')) {
 
 if(!!document.querySelector('.pagination')) {
     function getPaginationItems(totalPages, currentPage, siblingCount = 1, boundaryCount = 1) {
-        const totalNumbers = siblingCount * 2 + 1;               // current +/- siblings
-        const totalBlocks  = totalNumbers + boundaryCount * 2;    // + first/last boundaries
+        const totalNumbers = siblingCount * 2 + 1;
+        const totalBlocks  = totalNumbers + boundaryCount * 2;
 
         if (totalPages <= totalBlocks) {
             return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -362,11 +362,19 @@ if(!!document.querySelector('.pagination')) {
             const canPrev = state.currentPage > 1;
             const canNext = state.currentPage < state.totalPages;
 
-            // Back
-            rootEl.appendChild(renderNavButton("Back", "prev", !canPrev, createIcon("left")));
+            // Back (показуємо тільки якщо НЕ перша сторінка)
+            if (canPrev) {
+                rootEl.appendChild(renderNavButton("Back", "prev", false, createIcon("left")));
+            }
 
             // Pages
-            const items = getPaginationItems(state.totalPages, state.currentPage, state.siblingCount, state.boundaryCount);
+            const items = getPaginationItems(
+                state.totalPages,
+                state.currentPage,
+                state.siblingCount,
+                state.boundaryCount
+            );
+
             items.forEach(item => {
                 if (item === "dots") {
                     const li = document.createElement("li");
@@ -389,9 +397,12 @@ if(!!document.querySelector('.pagination')) {
                 rootEl.appendChild(li);
             });
 
-            // Next
-            rootEl.appendChild(renderNavButton("Next", "next", !canNext, createIcon("right")));
+            // Next (показуємо тільки якщо НЕ остання сторінка)
+            if (canNext) {
+                rootEl.appendChild(renderNavButton("Next", "next", false, createIcon("right")));
+            }
         }
+
 
         function renderNavButton(label, kind, disabled, iconSvg) {
             const li = document.createElement("li");
