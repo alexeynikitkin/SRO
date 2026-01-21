@@ -1,72 +1,3 @@
-/* ===== Thin 100 ===== */
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Thin.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Thin.woff') format('woff'),
-    url('../fonts/UniviaPro-Thin.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Thin.eot');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-ThinItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-ThinItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-ThinItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-ThinItalic.eot');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* ===== UltraLight 200 ===== */
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-UltraLight.woff2') format('woff2'),
-    url('../fonts/UniviaPro-UltraLight.woff') format('woff'),
-    url('../fonts/UniviaPro-UltraLight.ttf') format('truetype'),
-    url('../fonts/UniviaPro-UltraLight.eot');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-UltraLightItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-UltraLightItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-UltraLightItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-UltraLightItalic.eot');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* ===== Light 300 ===== */
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Light.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Light.woff') format('woff'),
-    url('../fonts/UniviaPro-Light.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Light.eot');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-LightItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-LightItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-LightItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-LightItalic.eot');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
 /* ===== Regular / Book 400 ===== */
 @font-face {
     font-family: 'Univia Pro';
@@ -79,16 +10,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Italic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Italic.woff') format('woff'),
-    url('../fonts/UniviaPro-Italic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Italic.eot');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
 
 /* ===== Medium 500 ===== */
 @font-face {
@@ -102,16 +23,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-MediumItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-MediumItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-MediumItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-MediumItalic.eot');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
 
 /* ===== Bold 700 ===== */
 @font-face {
@@ -125,45 +36,10 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-BoldItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-BoldItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-BoldItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-BoldItalic.eot');
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
-/* ===== Black / Ultra 900 ===== */
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Black.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Black.woff') format('woff'),
-    url('../fonts/UniviaPro-Black.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Black.eot');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-BlackItalic.woff2') format('woff2'),
-    url('../fonts/UniviaPro-BlackItalic.woff') format('woff'),
-    url('../fonts/UniviaPro-BlackItalic.ttf') format('truetype'),
-    url('../fonts/UniviaPro-BlackItalic.eot');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
 
 :root {
     --brand-red-grad: linear-gradient(90deg, #D03625 0%, #912817 100%);
     --brand-red: #D13626;
-
-
     --bg: #fff;
     --field-bg: #f6f7f9;
     --field-bg-2: #ffffff;
@@ -171,13 +47,11 @@
     --border-active: #2b2f36;
     --border-error: #ff4d4f;
     --border-info: #3b6cff;
-
     --text: #000;
     --muted: #9aa3af;
     --hint: #9aa3af;
     --error: #ff4d4f;
     --info: #3b6cff;
-
     --radius: 10px;
     --h: 52px;
     --px: 18px;
@@ -587,6 +461,7 @@ a.link:hover::after {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-top: -2px;
 }
 
 /* ===== error text ===== */
@@ -1725,7 +1600,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 8px;
     align-items: flex-start;
     width: 45%;
 }
@@ -1750,6 +1624,8 @@ section {
     font-size: 12px;
     font-weight: 400;
     line-height: 146%;
+    margin-top: -2px;
+    text-align: right;
 }
 .orders__create-top .right {
     display: flex;
@@ -1800,13 +1676,20 @@ section {
     padding: 14px 0;
 }
 
+.order-table .t-row .t-col.hidden {
+    display: none;
+}
+
 .order-table .t-head {
     padding: 10px 0 8px;
     border-bottom: 1px solid #d9d9d9;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 11px;
-    color: #d33;
+    color: transparent;
+    background-image: var(--brand-red-grad);
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .order-table .t-body {
@@ -2049,8 +1932,15 @@ section {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
 
+}
+.download-modal .ticket__event span {
+    text-transform: uppercase;
+    background: var(--brand-red-grad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .download-modal .tickets {
     max-height: 500px;
     overflow-y: auto;
@@ -2146,6 +2036,9 @@ section {
     flex-direction: column;
     gap: 4px;
     font-size: 12px;
+}
+.download-modal .lines span {
+    color: #7C7E82;
 }
 .download-modal .num { font-variant-numeric: tabular-nums; }
 
@@ -2503,8 +2396,70 @@ body.modal-lock { overflow: hidden; }
     text-decoration: underline;
 }
 
+@media (max-width: 1200px) {
+
+    .orders__create-top .left {
+        width: 80%;
+    }
+    .orders .cell, .orders .cell .link {
+        font-size: 12px;
+    }
+
+    .orders .col-champ {
+        width: 180px;
+        flex: 0 0 180px;
+    }
+    .orders .col-location {
+        /*width: 180px;*/
+        flex: 0 0 180px;
+    }
+}
+
+@media (max-width: 968px) {
+    .orders__create-top {
+    }
+    .orders__create-top .left {
+        flex-wrap: wrap;
+        width: 70%;
+    }
+    .orders__create-top .left .items {
+        width: 100%;
+    }
+    .orders .col-date, .orders .col-amount, .orders .col-champ, .qty-stepper {
+        display: none;
+    }
+}
+
 
 @media (max-width: 768px) {
+    .orders__create-top .left {
+        width: 100%;
+    }
+    .orders__create-top .right, .order-table .t-head, .order-table .ghost {
+       display: none;
+    }
+    .order-table .t-row {
+        flex-direction: column;
+        gap: 10px
+    }
+    .order-table .t-row .cell-lines {
+        text-align: right;
+    }
+    .order-table .t-row .t-col {
+        flex: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .order-table .t-row .t-col.hidden {
+        display: flex;
+        color: transparent;
+        background-image: var(--brand-red-grad);
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-transform: uppercase;
+    }
     .site-header__inner .line {
         display: none;
     }
@@ -2526,6 +2481,21 @@ body.modal-lock { overflow: hidden; }
 
     .event-card {
         max-width: 100%;
+    }
+
+    .orders .col-date, .orders .col-amount, .orders .col-champ, .orders .col-location, .qty-stepper {
+        display: none;
+    }
+    .pg-btn--nav {
+        gap: 0px;
+        padding: 0px;
+    }
+    .pagination__item {
+        padding: 0px;
+        font-size: 11px;
+    }
+    .pg-btn--page {
+        padding: 5px 10px;
     }
 }
 
