@@ -139,17 +139,17 @@
                 <nav class="crumbs" aria-label="Breadcrumb">
                     <a class="crumbs__link" href="index.html">HOME</a>
                     <span class="crumbs__sep">
-                                            <svg width="6" height="11" aria-hidden="true">
-                                              <use href="#icon-like"></use>
-                                            </svg>
-                                        </span>
-                    <!--                    <a class="crumbs__link" href="#">BUY TICKET FOR EVENT</a>-->
-                    <!--                    <span class="crumbs__sep">-->
-                    <!--                        <svg width="6" height="11" aria-hidden="true">-->
-                    <!--                          <use href="#icon-like"></use>-->
-                    <!--                        </svg>-->
-                    <!--                    </span>-->
-                    <span class="crumbs__current">Add Order</span>
+                        <svg width="6" height="11" aria-hidden="true">
+                          <use href="#icon-like"></use>
+                        </svg>
+                    </span>
+                    <a class="crumbs__link" href="show-order.html">Order Details</a>
+                    <span class="crumbs__sep">
+                        <svg width="6" height="11" aria-hidden="true">
+                          <use href="#icon-like"></use>
+                        </svg>
+                    </span>
+                    <span class="crumbs__current">Edit Order</span>
                 </nav>
 
 
@@ -207,7 +207,237 @@
                 <h1>ADD ORDER: <span class="sub-title1">Crowdstrike</span> <span>/</span> <span class="sub-title2">miami gt opening drive</span></h1>
             </div>
             <div class="orders__create add">
+                <div class="orders__create-top">
+                    <div class="order-table">
+                        <div class="t-row t-head">
+                            <div class="t-col item">ORDER</div>
+                            <div class="t-col price">PRICE</div>
+                            <div class="t-col quantify">DESCRIPTION</div>
+                            <div class="t-col amount">ENTER QUANTITY</div>
+                        </div>
+                        <div class="t-row t-body">
+                            <div class="t-col item">
+                                <div class="t-col item hidden">ORDER</div>
+                                <div class="line title">Media day entry fee</div>
+                            </div>
+                            <div class="t-col price">
+                                <div class="t-col price hidden">price</div>
+                                <div class="line num">2800</div>
+                            </div>
+                            <div class="t-col quantify">
+                                <div class="t-col quantify hidden">DESCRIPTION</div>
+
+                                <div class="line num">-</div>
+                            </div>
+                            <div class="t-col amount">
+                                <div class="t-col amount hidden">QUANTITY</div>
+                                <div class="line num"><span class="sold-out">SOLD OUT</span></div>
+                            </div>
+                        </div>
+
+                        <div class="t-row t-body">
+                            <div class="t-col item">
+                                <div class="t-col item hidden">ORDER</div>
+                                <div class="cell-lines">
+                                    <div class="line">Car Pass</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col price">
+                                <div class="t-col price hidden">price</div>
+                                <div class="cell-lines">
+                                    <div class="line num">200.00</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col quantify">
+                                <div class="t-col quantify hidden">DESCRIPTION</div>
+
+                                <div class="cell-lines">
+                                    <div class="line num">This one is a really great car pass for the brilliant event in Barcelona.</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col amount">
+                                <div class="t-col amount hidden">QUANTITY</div>
+                                <div class="cell-lines">
+                                    <div class="line num flex">
+                                        <div class="qty">
+                                            <button class="qty__btn qty__btn--minus" disabled>-</button>
+                                            <span class="qty__value">0</span>
+                                            <button class="qty__btn qty__btn--plus">+</button>
+                                        </div>
+                                        <div class="basket">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M2 4H3.33333H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M12.6673 3.99992V13.3333C12.6673 13.6869 12.5268 14.026 12.2768 14.2761C12.0267 14.5261 11.6876 14.6666 11.334 14.6666H4.66732C4.3137 14.6666 3.97456 14.5261 3.72451 14.2761C3.47446 14.026 3.33398 13.6869 3.33398 13.3333V3.99992M5.33398 3.99992V2.66659C5.33398 2.31296 5.47446 1.97382 5.72451 1.72378C5.97456 1.47373 6.3137 1.33325 6.66732 1.33325H9.33398C9.68761 1.33325 10.0267 1.47373 10.2768 1.72378C10.5268 1.97382 10.6673 2.31296 10.6673 2.66659V3.99992" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M6.66602 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M9.33398 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="t-row t-body">
+                            <div class="t-col item">
+                                <div class="t-col item hidden">ORDER</div>
+
+                                <div class="cell-lines">
+                                    <div class="line">Paddock Pass</div>
+                                    <div class="line">Grid Walk Pass</div>
+                                    <div class="line">Parking Pass</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col price">
+                                <div class="t-col price hidden">price</div>
+
+
+                                <div class="cell-lines">
+                                    <div class="line num">200.00</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col quantify">
+                                <div class="t-col quantify hidden">DESCRIPTION</div>
+
+                                <div class="cell-lines">
+                                    <div class="line num">-</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col amount">
+                                <div class="t-col amount hidden">Quantity</div>
+
+                                <div class="cell-lines">
+                                    <div class="line num flex">
+                                        <div class="qty">
+                                            <button class="qty__btn qty__btn--minus" disabled>-</button>
+                                            <span class="qty__value">0</span>
+                                            <button class="qty__btn qty__btn--plus">+</button>
+                                        </div>
+                                        <div class="basket">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <path d="M2 4H3.33333H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M12.6673 3.99992V13.3333C12.6673 13.6869 12.5268 14.026 12.2768 14.2761C12.0267 14.5261 11.6876 14.6666 11.334 14.6666H4.66732C4.3137 14.6666 3.97456 14.5261 3.72451 14.2761C3.47446 14.026 3.33398 13.6869 3.33398 13.3333V3.99992M5.33398 3.99992V2.66659C5.33398 2.31296 5.47446 1.97382 5.72451 1.72378C5.97456 1.47373 6.3137 1.33325 6.66732 1.33325H9.33398C9.68761 1.33325 10.0267 1.47373 10.2768 1.72378C10.5268 1.97382 10.6673 2.31296 10.6673 2.66659V3.99992" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M6.66602 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M9.33398 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="t-row t-body">
+                            <div class="t-col item">
+                                <div class="t-col item hidden">ORDER</div>
+                                <div class="cell-lines">
+                                    <div class="line title">Motorhomes</div>
+                                    <!--                                    <div class="line sub">Vehicle Length - 8m</div>-->
+                                    <!--                                    <div class="line sub">Vehicle Width (Incl Awning) - 3m</div>-->
+                                    <!--                                    <div class="line sub">Electricity Requirements - 16amp</div>-->
+                                    <!--                                    <div class="line sub">Water Requirements - Yes</div>-->
+                                </div>
+                            </div>
+
+                            <div class="t-col price">
+                                <div class="t-col price hidden">price</div>
+
+                                <div class="line num">100.00</div>
+                            </div>
+
+                            <div class="t-col quantify">
+                                <div class="t-col quantify hidden">description</div>
+
+                                <div class="line num">-</div>
+                            </div>
+
+                            <div class="t-col amount">
+                                <div class="t-col amount hidden">QUANTITY</div>
+
+                                <div class="line num flex">
+                                    <div class="plus show-modal">
+                                        <button class="qty__btn qty__btn--plus">+</button>
+                                    </div>
+                                    <div class="basket">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M2 4H3.33333H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.6673 3.99992V13.3333C12.6673 13.6869 12.5268 14.026 12.2768 14.2761C12.0267 14.5261 11.6876 14.6666 11.334 14.6666H4.66732C4.3137 14.6666 3.97456 14.5261 3.72451 14.2761C3.47446 14.026 3.33398 13.6869 3.33398 13.3333V3.99992M5.33398 3.99992V2.66659C5.33398 2.31296 5.47446 1.97382 5.72451 1.72378C5.97456 1.47373 6.3137 1.33325 6.66732 1.33325H9.33398C9.68761 1.33325 10.0267 1.47373 10.2768 1.72378C10.5268 1.97382 10.6673 2.31296 10.6673 2.66659V3.99992" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6.66602 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M9.33398 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="t-row t-body">
+                            <div class="t-col item">
+                                <div class="t-col item hidden">ORDER</div>
+
+                                <div class="cell-lines">
+                                    <div class="line title">Motorhomes</div>
+                                    <div class="line sub">Vehicle Length - 8m</div>
+                                    <div class="line sub">Vehicle Width (Incl Awning) - 3m</div>
+                                    <div class="line sub">Electricity Requirements - 16amp</div>
+                                    <div class="line sub">Water Requirements - Yes</div>
+                                </div>
+                            </div>
+
+                            <div class="t-col price">
+                                <div class="t-col price hidden">price</div>
+                                <div class="line num">100.00</div>
+                            </div>
+
+                            <div class="t-col quantify">
+                                <div class="t-col quantify hidden">description</div>
+
+                                <div class="line num">-</div>
+                            </div>
+
+                            <div class="t-col amount">
+                                <div class="t-col amount hidden">quantity</div>
+
+                                <div class="line num flex">
+                                    <div class="plus show-modal">
+                                        <button class="qty__btn qty__btn--plus">+</button>
+                                    </div>
+                                    <div class="basket">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M2 4H3.33333H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.6673 3.99992V13.3333C12.6673 13.6869 12.5268 14.026 12.2768 14.2761C12.0267 14.5261 11.6876 14.6666 11.334 14.6666H4.66732C4.3137 14.6666 3.97456 14.5261 3.72451 14.2761C3.47446 14.026 3.33398 13.6869 3.33398 13.3333V3.99992M5.33398 3.99992V2.66659C5.33398 2.31296 5.47446 1.97382 5.72451 1.72378C5.97456 1.47373 6.3137 1.33325 6.66732 1.33325H9.33398C9.68761 1.33325 10.0267 1.47373 10.2768 1.72378C10.5268 1.97382 10.6673 2.31296 10.6673 2.66659V3.99992" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6.66602 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M9.33398 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="totals">
+                            <div class="totals-row">
+                                <span class="label">SUB-TOTAL:</span>
+                                <span class="value num">300.00</span>
+                            </div>
+                            <div class="totals-row">
+                                <span class="label">TAX-TOTAL:</span>
+                                <span class="value num">0.00</span>
+                            </div>
+
+                            <div class="totals-row total">
+                                <span class="label">TOTAL AMOUNT:</span>
+                                <span class="value num">300.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="orders__create-bottom">
+                    <h2>ADD ITEMS:</h2>
                     <div class="order-table">
                         <div class="t-row t-head">
                             <div class="t-col item">ORDER</div>
@@ -373,79 +603,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="t-row t-body">
-                            <div class="t-col item">
-                                <div class="t-col item hidden">ORDER</div>
-
-                                <div class="cell-lines">
-                                    <div class="line title">Motorhomes</div>
-                                                                        <div class="line sub">Vehicle Length - 8m</div>
-                                                                        <div class="line sub">Vehicle Width (Incl Awning) - 3m</div>
-                                                                        <div class="line sub">Electricity Requirements - 16amp</div>
-                                                                        <div class="line sub">Water Requirements - Yes</div>
-                                </div>
-                            </div>
-
-                            <div class="t-col price">
-                                <div class="t-col price hidden">price</div>
-                                <div class="line num">100.00</div>
-                            </div>
-
-                            <div class="t-col quantify">
-                                <div class="t-col quantify hidden">description</div>
-
-                                <div class="line num">-</div>
-                            </div>
-
-                            <div class="t-col amount">
-                                <div class="t-col amount hidden">quantity</div>
-
-                                <div class="line num flex">
-                                    <div class="plus show-modal">
-                                        <button class="qty__btn qty__btn--plus">+</button>
-                                    </div>
-                                    <div class="basket">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M2 4H3.33333H14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M12.6673 3.99992V13.3333C12.6673 13.6869 12.5268 14.026 12.2768 14.2761C12.0267 14.5261 11.6876 14.6666 11.334 14.6666H4.66732C4.3137 14.6666 3.97456 14.5261 3.72451 14.2761C3.47446 14.026 3.33398 13.6869 3.33398 13.3333V3.99992M5.33398 3.99992V2.66659C5.33398 2.31296 5.47446 1.97382 5.72451 1.72378C5.97456 1.47373 6.3137 1.33325 6.66732 1.33325H9.33398C9.68761 1.33325 10.0267 1.47373 10.2768 1.72378C10.5268 1.97382 10.6673 2.31296 10.6673 2.66659V3.99992" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M6.66602 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M9.33398 7.33325V11.3333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="totals">
-                            <div class="totals-row">
-                                <span class="label">SUB-TOTAL:</span>
-                                <span class="value num">300.00</span>
-                            </div>
-                            <div class="totals-row">
-                                <span class="label">TAX-TOTAL:</span>
-                                <span class="value num">0.00</span>
-                            </div>
-
-                            <div class="totals-row total">
-                                <span class="label">TOTAL AMOUNT:</span>
-                                <span class="value num">300.00</span>
-                            </div>
-                        </div>
                     </div>
-                    <div class="order-buy">
-                        <label class="agree">
-                            <input class="agree__input" type="checkbox">
-                            <span class="agree__box" aria-hidden="true"></span>
-                            <span class="agree__text">
-                                I agree to the <a class="link" href="#">T&amp;Cs</a> and
-                                <a class="link" href="#">Privacy Policy</a> for this order.
-                            </span>
-                        </label>
+                    <div class="order-buy edit">
+                        <button class="button-secondary">cancel</button>
 
-                        <button class="button-primary">ORDER</button>
+                        <button class="button-primary">save</button>
                     </div>
                 </div>
             </div>

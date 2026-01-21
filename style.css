@@ -193,6 +193,7 @@ h2 {
     border: 1px solid var(--brand-red);
     text-decoration: none;
     text-align: center;
+    font-family: "Univia Pro", sans-serif;
 }
 
 
@@ -595,7 +596,7 @@ a.link:hover::after {
     background: #fff;
     padding: 0 var(--px);
     outline: none;
-    color: #A0A3A9;
+    color: #000;
     /* Body 1/M */
     font-family: "Univia Pro";
     font-size: 14px;
@@ -1668,6 +1669,7 @@ section {
     font-weight: 400;
     color: #000;
     line-height: 146%;
+    width: 100%;
 }
 
 .order-table .t-row {
@@ -1804,7 +1806,14 @@ section {
     gap: 16px;
     margin-top: 20px;
 }
-
+.order-buy.edit {
+    flex-direction: row;
+    justify-content: space-between;
+}
+.order-buy.edit button {
+    width: 49%!important;
+    max-width: 49%!important;
+}
 .sold-out {
     border-radius: 16px;
     background: #FF5C5C;
@@ -1908,7 +1917,7 @@ section {
     right: 20px;
     top: 19px;
     cursor: pointer;
-    background: #fff;
+    background: transparent;
 }
 
 .download-modal .ticket {
@@ -2432,6 +2441,12 @@ body.modal-lock { overflow: hidden; }
 
 
 @media (max-width: 768px) {
+    .sold-out {
+        display: block;
+    }
+    .order-table .line.title {
+    text-align: right;
+    }
     .orders__create-top .left {
         width: 100%;
     }
@@ -2452,6 +2467,14 @@ body.modal-lock { overflow: hidden; }
         align-items: flex-start;
         width: 100%;
     }
+    .orders__create.add .order-table .t-col {
+        flex: auto!important;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .order-table .t-row .t-col.hidden {
         display: flex;
         color: transparent;
