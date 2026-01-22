@@ -154,8 +154,7 @@ if (document.querySelector('.search-field__simple')) {
 
 
 // ===== Validation =====
-const form = document.getElementById('demoForm');
-
+// --------- helpers ----------
 function setError(fieldEl, msg) {
     fieldEl.classList.add('is-error');
     const msgEl = fieldEl.querySelector('.field__msg');
@@ -168,31 +167,61 @@ function clearError(fieldEl) {
     if (msgEl) msgEl.textContent = '';
 }
 
-function validateField(input) {
+function getVal(input) {
+    return (input.value || '').trim();
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// --------- validation rules ----------
+function validateInput(input, form) {
     const field = input.closest('.field');
     if (!field) return true;
 
+    clearError(field);
+
+    const val = getVal(input);
     const required = field.dataset.required === '1';
     const min = field.dataset.min ? Number(field.dataset.min) : null;
 
-    const val = (input.value || '').trim();
-    clearError(field);
-
+    // required
     if (required && !val) {
-        setError(field, 'You made mistake');
+        // кастомні required-повідомлення залежно від поля
+        const nm = (input.name || '').toLowerCase();
+        if (input.type === 'email' || nm === 'email') return setError(field, 'Enter your email'), false;
+        if (input.type === 'password' || nm.includes('password')) return setError(field, 'Enter your password'), false;
+        if (nm.includes('first')) return setError(field, 'Enter your first name'), false;
+        if (nm.includes('last')) return setError(field, 'Enter your last name'), false;
+        return setError(field, 'This field is required'), false;
+    }
+
+    // email format
+    if ((input.type === 'email' || (input.name || '').toLowerCase() === 'email') && val) {
+        if (!isValidEmail(val)) {
+            setError(field, 'Enter a valid email address');
+            return false;
+        }
+    }
+
+    // min length for password (або будь-яке поле з data-min)
+    if (min && val && val.length < min) {
+        const nm = (input.name || '').toLowerCase();
+        if (input.type === 'password' || nm.includes('password')) {
+            setError(field, `Password must be at least ${min} characters`);
+        } else {
+            setError(field, `Must be at least ${min} characters`);
+        }
         return false;
     }
 
-    if (min && val.length < min) {
-        setError(field, 'You made mistake');
-        return false;
-    }
-
-    if (input.type === 'email' && val) {
-        // простий email чек
-        const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-        if (!ok) {
-            setError(field, 'You made mistake');
+    // confirm password (тільки для реєстрації)
+    if ((input.name || '').toLowerCase() === 'password-confirmation' && val) {
+        const passInput = form.querySelector('input[name="password"]');
+        const passVal = passInput ? getVal(passInput) : '';
+        if (passVal && val !== passVal) {
+            setError(field, 'Passwords do not match');
             return false;
         }
     }
@@ -200,76 +229,51 @@ function validateField(input) {
     return true;
 }
 
-if (form) {
-    const inputs = form.querySelectorAll('input');
+// --------- init for any form ----------
+function initFormValidation(formEl) {
+    if (!formEl) return;
+
+    const inputs = Array.from(formEl.querySelectorAll('input'));
 
     inputs.forEach(inp => {
-        inp.addEventListener('blur', () => validateField(inp));
+        inp.addEventListener('blur', () => validateInput(inp, formEl));
+
         inp.addEventListener('input', () => {
-            // якщо користувач почав виправляти — прибираємо помилку
             const field = inp.closest('.field');
-            if (field && field.classList.contains('is-error')) validateField(inp);
+            if (field?.classList.contains('is-error')) validateInput(inp, formEl);
+
+            // якщо міняємо password — одразу пере-валіднути confirmation (щоб помилка зникала/з'являлась)
+            if ((inp.name || '').toLowerCase() === 'password') {
+                const confirm = formEl.querySelector('input[name="password-confirmation"]');
+                if (confirm) validateInput(confirm, formEl);
+            }
         });
     });
 
-    form.addEventListener('submit', (e) => {
+    formEl.addEventListener('submit', (e) => {
         let ok = true;
         inputs.forEach(inp => {
-            if (!validateField(inp)) ok = false;
+            if (!validateInput(inp, formEl)) ok = false;
         });
         if (!ok) e.preventDefault();
     });
 }
 
-//
-// if(!!document.getElementById('searchField')) {
-//     // ===== Search behavior =====
-//     const searchField = document.getElementById('searchField');
-//     const searchInput = document.getElementById('searchInput');
-//     const clearBtn = document.getElementById('clearBtn');
-//     const dropdown = document.getElementById('searchDropdown');
-//
-//     function openDropdown() {
-//         searchField.classList.add('is-open');
-//     }
-//
-//     function closeDropdown() {
-//         searchField.classList.remove('is-open');
-//     }
-//
-//     function syncSearchUI() {
-//         const has = (searchInput.value || '').length > 0;
-//         searchField.classList.toggle('has-value', has);
-//         if (document.activeElement === searchInput && has) openDropdown();
-//         if (!has) closeDropdown();
-//     }
-//
-//     if (searchInput) {
-//         searchInput.addEventListener('focus', () => syncSearchUI());
-//         searchInput.addEventListener('input', () => syncSearchUI());
-//
-//         document.addEventListener('click', (e) => {
-//             if (!searchField.contains(e.target)) closeDropdown();
-//         });
-//
-//         dropdown.querySelectorAll('.dropdown__item').forEach(item => {
-//             item.addEventListener('click', () => {
-//                 searchInput.value = item.textContent.trim();
-//                 syncSearchUI();
-//                 closeDropdown();
-//                 searchInput.focus();
-//             });
-//         });
-//
-//         clearBtn.addEventListener('click', () => {
-//             searchInput.value = '';
-//             syncSearchUI();
-//             searchInput.focus();
-//         });
-//
-//         syncSearchUI();
-//     }
-// }
+// --------- usage: 2 different forms ----------
+document.addEventListener('DOMContentLoaded', () => {
+    // IMPORTANT: не використовуй однаковий id="demoForm" у двох формах
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+    const resetEmailForm = document.getElementById('resetEmailForm');
+    const resetPWForm = document.getElementById('resetPWForm');
+
+    initFormValidation(registerForm);
+    initFormValidation(loginForm);
+    initFormValidation(resetEmailForm);
+    initFormValidation(resetPWForm);
+});
+
+
 
 
 if(!!document.querySelectorAll('[data-toggle-password]')) {
