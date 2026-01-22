@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:image" content="img/favicons/OG.png" />
+    <link rel="icon" href="img/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/favicons/touch.png">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+</head>
+<body>
+
+<!-- icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+    <symbol id="icon_search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="icon_close" viewBox="0 0 24 24">
+        <line x1="6" y1="6" x2="18" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+        <line x1="18" y1="6" x2="6" y2="18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-like" viewBox="0 0 6 11">
+        <path d="M1.1417 0L0 1.23375L3.7085 5.25L0 9.26625L1.1417 10.5L6 5.25L1.1417 0Z" fill="#BDC0C7"/>
+    </symbol>
+
+
+    <symbol id="icon-triangle-down" viewBox="0 0 7 5">
+        <path d="M3.5 4.5L0 0L7 4.54262e-07L3.5 4.5Z" fill="black"/>
+    </symbol>
+
+    <symbol id="icon-triangle-up" viewBox="0 0 7 5">
+        <path d="M3.5 -3.0598e-07L7 4.5L4.76837e-07 4.5L3.5 -3.0598e-07Z" fill="black"/>
+    </symbol>
+
+    <symbol id="icon-refresh" viewBox="0 0 16 16" fill="none">
+        <path d="M0.666992 2.66675V6.66675H4.66699"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.333 13.3333V9.33325H11.333"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13.6603 5.99989C13.3222 5.04441 12.7476 4.19016 11.99 3.51683C11.2325 2.84351 10.3167 2.37306 9.32813 2.14939C8.33959 1.92572 7.31049 1.95612 6.33687 2.23774C5.36324 2.51936 4.47682 3.04303 3.76033 3.75989L0.666992 6.66655M15.3337 9.33322L12.2403 12.2399C11.5238 12.9567 10.6374 13.4804 9.66379 13.762C8.69016 14.0437 7.66106 14.0741 6.67252 13.8504C5.68397 13.6267 4.76819 13.1563 4.01064 12.4829C3.25308 11.8096 2.67844 10.9554 2.34033 9.99989"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-logout" viewBox="0 0 16 16" fill="none">
+        <path d="M5.83301 2.16675L3.16634 2.16675C2.81272 2.16675 2.47358 2.30722 2.22353 2.55727C1.97348 2.80732 1.83301 3.14646 1.83301 3.50008L1.83301 12.8334C1.83301 13.187 1.97348 13.5262 2.22353 13.7762C2.47358 14.0263 2.81272 14.1667 3.16634 14.1667L5.83301 14.1667"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.833 4.83374L14.1663 8.16707L10.833 11.5004"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.83301 8.16724L13.833 8.16724"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-download" viewBox="0 0 16 16" fill="none">
+        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.66675 6.66675L8.00008 10.0001L11.3334 6.66675"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 10V2"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="icon-eye" viewBox="0 0 16 16" fill="none">
+        <g clip-path="url(#icon-eye-clip)">
+            <path d="M0.666748 7.99984C0.666748 7.99984 3.33341 2.6665 8.00008 2.6665C12.6667 2.6665 15.3334 7.99984 15.3334 7.99984C15.3334 7.99984 12.6667 13.3332 8.00008 13.3332C3.33341 13.3332 0.666748 7.99984 0.666748 7.99984Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <defs>
+            <clipPath id="icon-eye-clip">
+                <rect width="16" height="16" />
+            </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-eye-off" viewBox="0 0 16 16" fill="none">
+        <g clip-path="url(#icon-eye-off-clip)">
+            <path d="M7.16193 3.39488C7.43293 3.35482 7.7124 3.33333 8.00026 3.33333C11.4036 3.33333 13.6369 6.33656 14.3871 7.52453C14.4779 7.66833 14.5233 7.7402 14.5487 7.85113C14.5679 7.9344 14.5678 8.0658 14.5487 8.14907C14.5233 8.25993 14.4776 8.33233 14.3861 8.47707C14.1862 8.7934 13.8815 9.23807 13.4777 9.72033M4.48288 4.47669C3.0415 5.45447 2.06296 6.81293 1.61407 7.52353C1.52285 7.66793 1.47725 7.74013 1.45183 7.851C1.43273 7.93427 1.43272 8.0656 1.4518 8.14893C1.47722 8.2598 1.52262 8.33167 1.61342 8.47547C2.36369 9.66347 4.59694 12.6667 8.00026 12.6667C9.37253 12.6667 10.5546 12.1784 11.5259 11.5177M2.00028 2L14.0003 14M6.58607 6.58579C6.22413 6.94773 6.00028 7.44773 6.00028 8C6.00028 9.1046 6.89573 10 8.00026 10C8.55253 10 9.05253 9.77613 9.41447 9.4142"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+
+        <defs>
+            <clipPath id="icon-eye-off-clip">
+                <rect width="16" height="16" />
+            </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-arrow-right" viewBox="0 0 6 11" fill="none">
+        <path d="M1.1417 0L0 1.23375L3.7085 5.25L0 9.26625L1.1417 10.5L6 5.25L1.1417 0Z" fill="currentColor"/>
+    </symbol>
+
+    <symbol id="icon-arrow-left" viewBox="0 0 6 11" fill="none">
+        <path d="M4.8583 10.5L6 9.26625L2.2915 5.25L6 1.23375L4.8583 -9.98106e-08L4.5897e-07 5.25L4.8583 10.5Z"
+              fill="currentColor"/>
+    </symbol>
+
+
+</svg>
+
+
+
+<section class="login">
+    <div class="container">
+        <div class="login-wr">
+            <div class="left">
+                <div class="login-img">
+                    <img src="img/login.png" alt="image">
+                </div>
+            </div>
+            <div class="right">
+                <div class="login-logo">
+                    <img src="img/logo.svg" alt="logo" class="logo">
+                </div>
+                <div class="middle">
+                    <h1>TEAMS PORTAL</h1>
+                    <form action="" class="login-form" id="loginForm">
+
+                        <div class="field" data-required="1">
+                            <div class="field__label">Email</div>
+                            <div class="field__control">
+                                <input class="field__input" name="email" type="email" placeholder="Enter email address"/>
+                            </div>
+                            <div class="field__msg"></div>
+                        </div>
+
+                        <div class="field field--password is-hidden" data-required="1" data-min="6">
+                            <div class="field__label">Password</div>
+                            <div class="field__control">
+                                <input class="field__input" name="password" type="password" placeholder="Enter password"/>
+                                <button class="toggle-btn" type="button" data-toggle-password aria-label="Toggle password">
+                                    <!-- eye (closed) -->
+                                    <svg width="16" height="16" aria-hidden="true" class="icon-eye">
+                                        <use href="#icon-eye"></use>
+                                    </svg>
+
+                                    <svg width="16" height="16" aria-hidden="true" class="icon-eye-off">
+                                        <use href="#icon-eye-off"></use>
+                                    </svg>
+
+                                </button>
+                            </div>
+                            <div class="field__msg"></div>
+                        </div>
+                        <div class="additional">
+                            <label class="agree">
+                                <input class="agree__input" type="checkbox">
+                                <span class="agree__box" aria-hidden="true"></span>
+                                <span class="agree__text">
+                                Remember me
+                            </span>
+                            </label>
+                            <a class="link" href="reset_pw_email.html">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="button-primary">Send</button>
+                    </form>
+                    <hr>
+                    <div class="buttons">
+                        <a href="register.html" class="button-reg">Registration</a>
+                        <a class="link" href="#">Сontinue as a guest</a>
+
+                    </div>
+                </div>
+
+                <div class="links">
+                    <a class="link-gray" href="#">T&Cs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
