@@ -903,6 +903,7 @@ a.link:hover::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 2px;
+    font-family: "Univia Pro",sans-serif;
 }
 
 .user-menu__chev {
@@ -2542,7 +2543,7 @@ body.modal-lock { overflow: hidden; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     padding: 50px 0;
 }
 
