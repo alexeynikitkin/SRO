@@ -296,6 +296,12 @@ a.link {
     text-decoration: none;
 }
 
+
+.order-buy a.link:after {
+    bottom: 0px;
+}
+
+
 a.link::after {
     content: '';
     position: absolute;
