@@ -1,10 +1,10 @@
 /* ===== Regular / Book 400 ===== */
 @font-face {
     font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Regular.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Regular.woff') format('woff'),
-    url('../fonts/UniviaPro-Regular.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Regular.eot');
+    src: url('fonts/UniviaPro-Regular.woff2') format('woff2'),
+    url('fonts/UniviaPro-Regular.woff') format('woff'),
+    url('fonts/UniviaPro-Regular.ttf') format('truetype'),
+    url('fonts/UniviaPro-Regular.eot');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -14,10 +14,10 @@
 /* ===== Medium 500 ===== */
 @font-face {
     font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Medium.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Medium.woff') format('woff'),
-    url('../fonts/UniviaPro-Medium.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Medium.eot');
+    src: url('fonts/UniviaPro-Medium.woff2') format('woff2'),
+    url('fonts/UniviaPro-Medium.woff') format('woff'),
+    url('fonts/UniviaPro-Medium.ttf') format('truetype'),
+    url('fonts/UniviaPro-Medium.eot');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -27,10 +27,10 @@
 /* ===== Bold 700 ===== */
 @font-face {
     font-family: 'Univia Pro';
-    src: url('../fonts/UniviaPro-Bold.woff2') format('woff2'),
-    url('../fonts/UniviaPro-Bold.woff') format('woff'),
-    url('../fonts/UniviaPro-Bold.ttf') format('truetype'),
-    url('../fonts/UniviaPro-Bold.eot');
+    src: url('fonts/UniviaPro-Bold.woff2') format('woff2'),
+    url('fonts/UniviaPro-Bold.woff') format('woff'),
+    url('fonts/UniviaPro-Bold.ttf') format('truetype'),
+    url('fonts/UniviaPro-Bold.eot');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -2097,7 +2097,7 @@ section {
 }
 .download-modal .num { font-variant-numeric: tabular-nums; }
 
-.download-modal .ticket__notice {
+.ticket__notice {
     margin-top: 14px;
     display: flex;
     gap: 10px;
@@ -2108,15 +2108,16 @@ section {
     /* Shadow/1 */
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.07);
     padding: 16px;
+    width: 100%;
 }
 
-.download-modal .notice__icon {
+.ticket__notice .notice__icon {
     width: 18px;
     height: 18px;
 
 }
 
-.download-modal .notice__text {
+.ticket__notice .notice__text {
     color: #000;
     font-size: 12px;
     font-style: normal;
@@ -2124,13 +2125,31 @@ section {
     line-height: 146%;
 }
 
-.download-modal .ticket__actions {
+.ticket__notice .ticket__actions {
     margin-top: 14px;
     display: flex;
     justify-content: flex-end;
 }
-.download-modal .ticket__actions a {
+.ticket__notice .ticket__actions a {
     max-width: 150px;
+}
+
+.login .ticket__notice .notice__text {
+    font-size: 12px;
+    line-height: 146%;
+    font-weight: 700;
+    color: var(--brand-red);
+}
+
+.login .ticket__notice .notice__text .body-s {
+    color: #000;
+}
+
+.login .ticket__notice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0;
 }
 
 /* глобальний селектор лишаємо без префікса (бо це body) */
@@ -2463,6 +2482,7 @@ body.modal-lock { overflow: hidden; }
     justify-content: space-between;
     gap: 24px;
     align-items: center;
+    position: relative;
 }
 
 .login .login-wr .right .logo{
